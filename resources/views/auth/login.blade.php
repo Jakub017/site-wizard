@@ -17,36 +17,47 @@ Site Wizard - Logowanie
 
 @section('content')
 
-<div class="auth-wrapper">
-    <div class="image-wrapper">
-        <img src="{{asset('img/auth-img.png')}}" alt="" class="auth-image">
-        <h2 class="auth-heading">Panel administracyjny</h2>
-        <h4 class="auth-subheading">Wersja demonstracyjna panelu Site Wizard</h4>
+<div class="flex justify-center items-center h-screen">
+    <div class="hidden lg:flex bg-primary-color-100 justify-center items-center flex-col h-full w-full gap-4">
+        <img src="{{asset('img/auth-img.png')}}">
+        <h2 class="text-white text-2xl font-bold">Panel administracyjny</h2>
+        <h4 class="text-white text-base">Panel administracyjny Site Wizard</h4>
     </div>
-    <div class="form-wrapper">
-        <h2 class="auth-title">Zaloguj się</h2>
-        <p class="auth-subtitle">Zaloguj się w celu zarządzania stroną internetową.</p>
-        <form class="auth-form" method="POST" action="{{ route('login') }}">
+    <div class="flex justify-center items-center flex-col h-screen w-full gap-1">
+        <h2 class="text-2xl font-bold">Zaloguj się</h2>
+        <p class="text-base text-gray-200 mb-6">Zaloguj się w celu zarządzania stroną internetową.</p>
+        <form class="flex justify-center items-center flex-col max-w-[500px] w-full gap-6" method="POST"
+            action="{{ route('login') }}">
             @csrf
-            <div class="auth-input-group">
-                <input type="email" class="auth-input" name="email" value="{{old('email')}}" placeholder="Adres email"
-                    required>
-                <img class="auth-input-icon" src="{{asset('img/auth-icons/email-icon.png')}}">
+            <div class="w-full relative">
+                <input
+                    class="w-full p-3 outline-none border-solid border-gray-100 border-2 rounded-md focus:border-primary-color-100 focus:ring-0 ease-in-out duration-300"
+                    type="email" name="email" value="{{old('email')}}" placeholder="Adres email" required>
+                <img class="absolute top-[50%] translate-y-[-50%] right-3 w-9"
+                    src="{{asset('img/auth-icons/email-icon.png')}}">
             </div>
-            <div class="auth-input-group">
-                <input type="password" class="auth-input" name="password" value="{{old('password')}}"
-                    placeholder="Hasło" required>
-                <img class="auth-input-icon" src="{{asset('img/auth-icons/password-icon.png')}}">
+            <div class="w-full relative">
+                <input class="w-full p-3 outline-0 border-solid border-gray-100 border-2 rounded-md
+                    focus:border-primary-color-100 focus:ring-0 ease-in-out duration-300" type="password"
+                    name="password" value="{{old('password')}}" placeholder="Hasło" required>
+                <img class="absolute top-[50%] translate-y-[-50%] right-3 w-9"
+                    src="{{asset('img/auth-icons/password-icon.png')}}">
             </div>
-            <div class="auth-input-group auth-remember">
-                <input id="remember_me" type="checkbox" class="auth-checkbox" name="remember">
-                <span class="auth-label">Nie wylogowuj mnie</span>
+            <div class="w-full flex justify-start items-center gap-2 text-gray-200 text-sm">
+                <input class="rounded-sm" type="checkbox" name="remember">
+                <span>Nie wylogowuj mnie</span>
             </div>
-            <button class="auth-login" type="submit">Zaloguj się</button>
+            <button
+                class="w-full bg-primary-color-100 text-white text-base py-2 ease-in-out duration-300 rounded-md hover:bg-primary-color-200"
+                type="submit">Zaloguj
+                się</button>
             @if ($errors->any())
             <p class="auth-error">Nieprawidłowe dane logowania.</p>
             @endif
-            <a href="https://www.lipinskijakub.pl/" class="auth-back">Powrót do lipinskijakub.pl</a>
+            <a class="absolute bottom-2 font-bold text-primary-color-100 text-base"
+                href="https://www.lipinskijakub.pl/">Powrót do
+                lipinskijakub.pl</a>
         </form>
     </div>
-</div> @endsection
+</div>
+@endsection
