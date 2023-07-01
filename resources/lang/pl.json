@@ -1,0 +1,68 @@
+{
+    "nav.english": "Angielski",
+    "nav.polish": "Polski",
+    "nav.monday": "Poniedziałek",
+    "nav.friday": "Piątek",
+
+    "nav.home": "Start",
+    "nav.services": "Usługi",
+    "nav.products": "Produkty",
+    "nav.allProducts": "Wszystkie produkty",
+    "nav.about": "O nas",
+    "nav.blog": "Blog",
+    "nav.contact": "Kontakt",
+
+    "hero.title": "Eksperci w sektorze recyklingu tworzyw sztucznych",
+    "hero.desc": "Głównym przedmiotem działalności firmy jest zaopatrywanie firm recyklingowych, produkcyjnych i przetwórczych we wszelkiego rodzaju surowce z tworzyw sztucznych. Zajmujemy się również odbiorem, kompleksową zbiórką odpadów, przetwarzaniem i recyklingiem tworzyw sztucznych.",
+    "hero.info": "Więcej informacji",
+    "hero.explore": "Sprawdź",
+
+    "services.title": "Usługi",
+    "services.desc": "Porządkujemy wszystkie materiały. Zapraszamy do składania zapytań dotyczących Państwa potrzeb.",
+    "services.more": "Więcej informacji",
+
+    "offer.title": "Co możemy dla Ciebie zrobić?",
+    "offer.desc": "Świadczymy usługi w zakresie zagospodarowania odpadów tworzyw sztucznych z firm produkcyjnych - logistyki, recyklingu, utylizacji i unieszkodliwiania.",
+    "offer.item1": "Recykling",
+    "offer.item2": "Utylizacja",
+    "offer.item3": "Neutralizacja",
+    "offer.item4": "Handel recyklatami",
+    "offer.item5": "Zbieranie odpadów",
+    "offer.item6": "Usługi transportowe",
+
+    "about.title": "Eksperci z 15-letnim doświadczeniem",
+    "about.desc": "Import Export Hurt Spedycja J. J. sp. z o. o. została zarejestrowana w Krajowym Rejestrze Sądowym w dniu 30.12.2002 r. Nasza firma zajmuje się zbiórką, segregacją, przetwarzaniem i recyklingiem odpadów z tworzyw sztucznych. Jako jedna z nielicznych firm w Polsce realizujemy cały cykl regeneracji od A do Z, począwszy od logistycznego zagospodarowania odpadów, poprzez recykling, własne profesjonalne laboratorium, aż po zwrot powstałych półproduktów i produktów do ponownego użycia.",
+    "about.item1": "Park maszyn",
+    "about.item2": "Zaawansowane zaplecze logistyczne",
+    "about.item3": "Regranuluje na skalę globalną",
+    "about.item4": "Zaawansowane laboratorium",
+
+    "testimonials.title": "Opinie naszych klientów",
+
+    "blog.title": "Nasz blog",
+    "blog.desc": "Zapraszamy do lektury naszego bloga, na którym dzielimy się naszą wiedzą i doświadczeniem w zakresie recyklingu tworzyw sztucznych.",
+
+    "form.title": "Zapisz się do newslettera",
+    "form.name": "Imię i nazwisko",
+    "form.company": "Nazwa firmy",
+    "form.phone": "Numer telefonu",
+    "form.email": "Adres e-mail",
+    "form.profile": "Wybierz profil",
+    "form.seller": "Sprzedający",
+    "form.buyer": "Kupujący",
+    "form.country": "Wybierz kraj",
+    "form.submit": "Zapisz się",
+    "form.consent": "Wyrażam zgodę na przetwarzanie moich danych zgodnie z Polityką prywatności.",
+
+    "footer.text": "Plastic Trader © 2023. Wszelkie prawa zastrzeżone.",
+    "footer.quick": "Szybki dostęp",
+    "footer.home": "Start",
+    "footer.about": "O nas",
+    "footer.services": "Usługi",
+    "footer.products": "Produkty",
+    "footer.contact": "Kontakt",
+
+    "footer.hours": "Godziny pracy",
+    "footer.hours2": "7:00 - 15:00 poniedziałek - piątek",
+    "footer.blog": "Nasz blog"
+}
