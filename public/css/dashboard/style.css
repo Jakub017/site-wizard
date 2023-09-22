@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -24,7 +24,7 @@
     --error-color: #B91C1C;
 
     /* Font sizes */
-    font-size: 10px;
+    /* font-size: 10px; */
     --section-heading-mobile-fz: 2.2rem;
     --section-heading-desktop-fz: 2.6rem;
     --group-heading-mobile-fz: 1.6rem;
@@ -37,9 +37,7 @@
     --classic-border: 2px solid rgba(226, 232, 240, 0.7);
 }
 
-body {
-    background-color: var(--color-primary);
-}
+
 
 .container {
     display: flex;
