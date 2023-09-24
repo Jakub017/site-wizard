@@ -22,16 +22,26 @@
     </div>
     <div class="flex flex-col gap-4 p-6">
         <a class="text-base w-full rounded-xl text-white bg-blue-300 p-6
-             flex flex-row gap-3 items-center justify-start hover:no-underline" href="#"><i
-                class="fa-solid fa-house text-lg text-white"></i>Pulpit</a>
+             flex flex-row gap-3 items-center justify-start hover:no-underline" href="#">
+            <i class="fa-solid fa-house text-lg text-white"></i>
+            Pulpit
+        </a>
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-user text-lg text-blue-300"></i>Administratorzy</a>
+            href="#">
+            <i class="fa-solid fa-user text-lg text-blue-300"></i>
+            Administratorzy
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
     </div>
     <div class="flex flex-col gap-4 p-6">
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-users text-lg text-blue-300"></i>Klienci</a>
+            href="#">
+            <i class="fa-solid fa-users text-lg text-blue-300"></i>
+            Klienci
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
             href="#"><i class="fa-solid fa-comments text-lg text-blue-300"></i>Wiadomości</a>
@@ -42,24 +52,47 @@
     <div class="flex flex-col gap-4 p-6">
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-copy text-lg text-blue-300"></i>Blog</a>
+            href="#">
+            <i class="fa-solid fa-copy text-lg text-blue-300"></i>
+            Blog
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-cubes text-lg text-blue-300"></i>Produkty</a>
+            href="#">
+            <i class="fa-solid fa-cubes text-lg text-blue-300"></i>
+            Produkty
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-screwdriver-wrench text-lg text-blue-300"></i>Usługi</a>
+            href="#">
+            <i class="fa-solid fa-screwdriver-wrench text-lg text-blue-300"></i>
+            Usługi
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-star text-lg text-blue-300"></i>Opinie</a>
+            href="#">
+            <i class="fa-solid fa-star text-lg text-blue-300"></i>
+            Opinie
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
     </div>
     <div class="flex flex-col gap-4 p-6">
         <a class="text-base w-full rounded-xl text-gray-100 p-6
            flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-gear text-lg text-blue-300"></i>Ustawienia</a>
+            href="#"><i class="fa-solid fa-gear text-lg text-blue-300"></i>
+            Ustawienia
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
         <a class="text-base w-full rounded-xl text-gray-100 p-6
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-blue-200 ease-in-out duration-200"
-            href="#"><i class="fa-solid fa-circle-question text-lg text-blue-300"></i>Wsparcie</a>
-
+            href="#">
+            <i class="fa-solid fa-circle-question text-lg text-blue-300"></i>
+            Wsparcie
+            <i class="fa-solid fa-angle-right ml-auto"></i>
+        </a>
     </div>
+    <span class="mt-auto text-center p-5">Site Wizard v0.1.0</span>
 </aside>
