@@ -30,7 +30,7 @@
         @include('dashboard.elements.sidebar')
         <main class="w-full lg:w-[calc(100%-300px)]  bg-blue-100 overflow-scroll">
             @include('dashboard.elements.nav')
-            <div class="max-w-[1100px] p-8 flex flex-col justify-center items-start gap-6">
+            <div class="max-w-[1200px] p-8 flex flex-col justify-center items-start gap-6">
                 @yield('content')
             </div>
         </main>
@@ -38,6 +38,19 @@
 
     <!-- JS -->
     <script src="{{asset('js/dashboard.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js">
+    </script>
+
+
+    <script>
+        $('select.groups-select').multiselect({
+            nonSelectedText: 'Wybierz grupę',
+            allSelectedText: 'Wszystkie grupy'
+        });
+
+    </script>
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         const ctx = document.getElementById('myChart');
