@@ -1,0 +1,72 @@
+@extends('dashboard.layouts.main')
+
+@section('title', 'Dodaj aktualność - Site Wizard')
+@section('page', 'Dodaj aktualność')
+
+@section('content')
+
+<div class="bg-white border-[1px] border-gray-200 p-6 w-full rounded-2xl flex flex-col gap-6">
+    <h2 class="text-black text-lg font-semibold">Nowa aktualność</h2>
+    <form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data"
+        class="flex flex-col gap-6 w-full max-w-2xl">
+        @csrf
+        @method('POST')
+        <div class="flex flex-col justify-start items-start gap-1 w-full">
+            <label for="image" class="text-xs text-gray-100 font-medium">Miniaturka</label>
+            <input type="file" name="image" class="outline-none border-[1px] border-gray-300 rounded-lg w-full p-2">
+        </div>
+        <div class="flex flex-col justify-start items-start gap-1 w-full">
+            <label for="title" class="text-xs text-gray-100 font-medium">Tytuł aktualności</label>
+            <input type="text" name="title" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+        </div>
+        <div class="flex flex-col justify-start items-start gap-1 w-full">
+            <label for="excerpt" class="text-xs text-gray-100 font-medium">Krótki wstęp</label>
+            <textarea type="text" name="excerpt"
+                class="outline-none border-[1px] border-gray-300 rounded-lg w-full h-[150px]"></textarea>
+        </div>
+        <div class="flex flex-col justify-start items-start gap-1 w-full">
+            <label for="content" class="text-xs text-gray-100 font-medium">Treść aktualności</label>
+            <textarea type="text" name="content" id="content"
+                class="outline-none border-[1px] border-gray-300 rounded-lg w-full h-[250px]"></textarea>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-between gap-2">
+            <div class="flex flex-col justify-start items-start gap-1 flex-grow">
+                <label for="category" class="text-xs text-gray-100 font-medium">Kategoria</label>
+                <select name="category" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+                    <option value="">Wybierz kategorię</option>
+                    <option value="Aktualności">Aktualności</option>
+                    <option value="Promocje">Promocje</option>
+                </select>
+            </div>
+            <div class="flex flex-col justify-start items-start gap-1 flex-grow">
+                <label for="status" class="text-xs text-gray-100 font-medium">Status</label>
+                <select name="status" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+                    <option value="">Wybierz status</option>
+                    <option value="1">Opublikowane</option>
+                    <option value="0">Szkic</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <button type="submit" class="text-white bg-main-300 p-2 rounded-lg min-w-[100px]">Zapisz</button>
+            <a href="{{route('posts.index')}}"
+                class="text-white bg-gray-100 p-2 rounded-lg min-w-[100px] text-center">Powrót</a>
+        </div>
+
+    </form>
+</div>
+
+@endsection
+
+@section('scripts')
+<script>
+    tinymce.init({
+        selector: '#content',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        'width': '100%',
+        'language': 'pl',
+    });
+
+</script>
+@endsection

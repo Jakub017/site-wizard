@@ -15,6 +15,7 @@ export default {
                 primary: ['Poppins', 'sans-serif'],
             },
             fontSize: {
+                'xs': '14px',
                 'sm': '16px',
                 'base': '18px',
                 'lg': '20px',
@@ -27,13 +28,21 @@ export default {
             },
 
             colors: {
-                'blue': {
+                'main': {
                     '100': '#F8FBFF',
                     '200': '#F6F9FF',
                     '300': '#339DFF',
                     '400': '#007AFF',
                     '500': '#0066CC',
                     '600': '#0052A3',
+                },
+                'active': {
+                    '100': '#E0F1BB',
+                    '200': '#85A738',
+                },
+                'hold': {
+                    '100': '#FFF0D8',
+                    '200': '#F49E13',
                 },
                 'gray': {
                     '100': '#8D8D97',
@@ -43,8 +52,8 @@ export default {
                     '200': '#B548C6',
                 },
                 'orange': {
-                    '100': '#FEF9F4',
-                    '200': '#FF8700',
+                    '100': '#FFF0D8',
+                    '200': '#F49E13',
                 },
                 'green': {
                     '100': '#F5FEF4',

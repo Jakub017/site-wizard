@@ -20,6 +20,10 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" />
     <script src="https://kit.fontawesome.com/80916011c5.js" crossorigin="anonymous"></script>
 
+    <!-- JS -->
+    <script src="https://cdn.tiny.cloud/1/njhu24zco629p7gplac3lpdoq5apb2lxig08zf3acrvbwtqj/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('css/dashboard/style.css')}}">
     @vite('resources/css/app.css')
@@ -28,7 +32,7 @@
 <body>
     <div class="flex h-screen">
         @include('dashboard.elements.sidebar')
-        <main class="w-full lg:w-[calc(100%-300px)]  bg-blue-100 overflow-scroll">
+        <main class="w-full lg:w-[calc(100%-300px)]  bg-main-100 overflow-scroll">
             @include('dashboard.elements.nav')
             <div class="max-w-[1100px] p-8 flex flex-col justify-center items-start gap-6">
                 @yield('content')
@@ -93,6 +97,8 @@
         });
 
     </script>
+
+    @yield('scripts')
 </body>
 
 </html>

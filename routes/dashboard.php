@@ -20,5 +20,10 @@ Route::controller(DashboardController::class)->group(function() {
 
 Route::controller(PostsController::class)->group(function(){
     Route::get('/admin/aktualnosci', 'index')->middleware(['auth', 'verified'])->name('posts.index');
+    Route::get('/admin/aktualnosci/dodaj', 'create')->middleware(['auth', 'verified'])->name('posts.create');
+    Route::post('/admin/aktualnosci/dodaj', 'store')->middleware(['auth', 'verified'])->name('posts.store');
+    Route::get('/admin/aktualnosci/{post}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('posts.edit');
+    Route::patch('/admin/aktualnosci/{post}/edytuj', 'update')->middleware(['auth', 'verified'])->name('posts.update');
+    Route::delete('/admin/aktualnosci/{post}/usun', 'destroy')->middleware(['auth', 'verified'])->name('posts.destroy');
 });
 
