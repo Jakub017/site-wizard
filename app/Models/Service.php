@@ -12,12 +12,9 @@ class Service extends Model
     protected $fillable = [
         'title',
         'slug',
-        'photo',
-        'photo_alt',
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
         'excerpt',
-        'body',
+        'content',
+        'image',
+        'price',
     ];
 }

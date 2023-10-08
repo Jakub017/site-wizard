@@ -105,10 +105,10 @@
             </div>
             <ul data-attribute="submenu"
                 class="flex-col w-full hidden text-gray-100 text-sm ml-9 border-l-2 border-main-300 mt-2">
-                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4"><a href="#"
+                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4"><a href="{{route('services.index')}}"
                         class="w-full block hover:no-underline">Wszystkie
                         usługi</a></li>
-                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4"><a href="#"
+                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4"><a href="{{route('services.create')}}"
                         class="w-full block hover:no-underline">Dodaj
                         usługę</a></li>
             </ul>

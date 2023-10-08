@@ -10,34 +10,30 @@ class ServicesController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
-        return view('dashboard.services.services-index', compact('services'));
+        $services = Service::paginate(10);
+        return view('dashboard.services.index', compact('services'));
     }
 
     public function create()
     {
-        return view('dashboard.services.services-create');
+        return view('dashboard.services.create');
     }
 
     public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'body' => 'required',
+        $attributes = $request->validate([
+            'title' => 'required|unique:services|max:255',
             'excerpt' => 'required',
-            'photo' => 'required',
-            'photo_alt' => '',
-            'meta_title' => '',
-            'meta_description' => '',
-            'meta_keywords' => '',
-            
+            'content' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required|numeric',
         ]);
 
-        if($request->hasFile('photo')) {
-            $attributes['photo'] = $request->file('photo')->store('services-photos', 'public');
-        }
-
         $attributes['slug'] = Str::slug($attributes['title']);
+
+        if($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('services-images', 'public');
+        }
 
         Service::create($attributes);
 
@@ -46,26 +42,21 @@ class ServicesController extends Controller
 
     public function edit(Service $service)
     {
-        return view('dashboard.services.services-edit', compact('service'));
+        return view('dashboard.services.edit', compact('service'));
     }
 
-    public function update(Request $request, Service $service)
-    {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'body' => 'required',
+    public function update(Request $request, Service $service) {
+        $attributes = $request->validate([
+            'title' => 'required|max:255',
             'excerpt' => 'required',
-            'photo_alt' => '',
-            'meta_title' => '',
-            'meta_description' => '',
-            'meta_keywords' => '',
+            'content' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required|numeric',
         ]);
 
-        if($request->hasFile('photo')) {
-            $attributes['photo'] = $request->file('photo')->store('services-photos', 'public');
+        if($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('services-images', 'public');
         }
-
-        $attributes['slug'] = Str::slug($attributes['title']);
 
         $service->update($attributes);
 
@@ -75,7 +66,6 @@ class ServicesController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-
         return redirect()->route('services.index')->with('success', 'Usługa usunięta pomyślnie.');
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ServicesController;
 
 Route::prefix('admin')->group(function() {
 
@@ -32,5 +33,13 @@ Route::prefix('admin')->group(function() {
         Route::delete('/produkty/{product}', 'destroy')->middleware(['auth', 'verified'])->name('products.destroy');
     });
 
+    Route::controller(ServicesController::class)->group(function() {
+        Route::get('/uslugi', 'index')->middleware(['auth', 'verified'])->name('services.index');
+        Route::get('/uslugi/dodaj', 'create')->middleware(['auth', 'verified'])->name('services.create');
+        Route::post('/uslugi', 'store')->middleware(['auth', 'verified'])->name('services.store');
+        Route::get('/uslugi/{service}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('services.edit');
+        Route::patch('/uslugi/{service}', 'update')->middleware(['auth', 'verified'])->name('services.update');
+        Route::delete('/uslugi/{service}', 'destroy')->middleware(['auth', 'verified'])->name('services.destroy');
+    });
 });
 
