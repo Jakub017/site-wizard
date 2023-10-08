@@ -10,95 +10,59 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('dashboard.products.products-index', compact('products'));
+        $products = Product::paginate(10);
+        return view('dashboard.products.index', compact('products'));
     }
 
     public function create()
     {
-        return view('dashboard.products.products-create');
+        return view('dashboard.products.create');
     }
 
-    public function store(Request $request)
-    {
-        $attributes = request()->validate([
-            'title_pl' => 'required',
-            'title_en' => 'required',
-
-            'body_pl' => 'required',
-            'body_en' => 'required',
-
-            'excerpt_pl' => 'required',
-            'excerpt_en' => 'required',
-
-            'photo' => 'required',
-
-            'photo_alt_pl' => '',
-            'photo_alt_en' => '',
-            'meta_title_pl' => '',
-            'meta_title_en' => '',
-            'meta_description_pl' => '',
-            'meta_description_en' => '',
-            'meta_keywords_pl' => '',
-            'meta_keywords_en' => '',
-            
+    public function store(Request $request) {
+        $attributes = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'excerpt' => 'required|max:255',
+            'content' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required|numeric|min:0',
         ]);
 
-        if($request->hasFile('photo')) {
-            $attributes['photo'] = $request->file('photo')->store('products-photos', 'public');
+        $attributes['slug'] = Str::slug($attributes['title']);
+
+        if($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('product-thumbnails', 'public');
         }
 
-        $attributes['slug'] = Str::slug($attributes['title_en']);
+        Product::create($attributes);
 
-        product::create($attributes);
-
-        return redirect()->route('products.index')->with('success', 'Produkt dodany pomyślnie.');
+        return redirect()->route('products.index')->with('success', 'Produkt został dodany.');
     }
 
-    public function edit(Product $product)
-    {
-        return view('dashboard.products.products-edit', compact('product'));
+    public function edit(Product $product) {
+        return view('dashboard.products.edit', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
-    {
-        $attributes = request()->validate([
-            'title_pl' => 'required',
-            'title_en' => 'required',
-
-            'body_pl' => 'required',
-            'body_en' => 'required',
-
-            'excerpt_pl' => 'required',
-            'excerpt_en' => 'required',
-
-            'photo_alt_pl' => '',
-            'photo_alt_en' => '',
-
-            'meta_title_pl' => '',
-            'meta_title_en' => '',
-            'meta_description_pl' => '',
-            'meta_description_en' => '',
-            'meta_keywords_pl' => '',
-            'meta_keywords_en' => '',
-            
+    public function update(Request $request, Product $product) {
+        $attributes = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'excerpt' => 'required|max:255',
+            'content' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required|numeric|min:0',
         ]);
 
-        if($request->hasFile('photo')) {
-            $attributes['photo'] = $request->file('photo')->store('products-photos', 'public');
+        if($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('product-thumbnails', 'public');
         }
-
-        $attributes['slug'] = Str::slug($attributes['title_en']);
 
         $product->update($attributes);
 
-        return redirect()->route('products.index')->with('success', 'Produkt zaktualizowany pomyślnie.');
+        return redirect()->route('products.index')->with('success', 'Produkt został zaktualizowany.');
     }
 
-    public function destroy(Product $product)
-    {
+    public function destroy(Product $product) {
         $product->delete();
-
-        return redirect()->route('products.index')->with('success', 'Produkt usunięty pomyślnie.');
+        return redirect()->route('products.index')->with('success', 'Produkt został usunięty.');
     }
 }

@@ -19,8 +19,8 @@ class PostsController extends Controller
         return view('dashboard.posts.create');
     }
 
-    public function store() {
-        $attributes = request()->validate([
+    public function store(Request $request) {
+        $attributes = $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required|min:3|max:255',
             'excerpt' => 'required|max:255',
@@ -32,8 +32,8 @@ class PostsController extends Controller
         $attributes['slug'] = Str::slug($attributes['title']);
         $attributes['author'] = auth()->user()->name;
 
-        if(request()->hasFile('image')) {
-            $attributes['image'] = request()->file('image')->store('post-thumbnails', 'public');
+        if($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('post-thumbnails', 'public');
         }
 
         Post::create($attributes);
@@ -46,8 +46,8 @@ class PostsController extends Controller
         return view('dashboard.posts.edit', compact('post'));
     }
 
-    public function update(Post $post) {
-        $attributes = request()->validate([
+    public function update(Request $request, Post $post) {
+        $attributes = $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required|min:3|max:255',
             'excerpt' => 'required|max:255',
@@ -58,8 +58,8 @@ class PostsController extends Controller
 
         $attributes['slug'] = Str::slug($attributes['title']);
 
-        if(request()->hasFile('image')) {
-            $attributes['image'] = request()->file('image')->store('post-thumbnails', 'public');
+        if($request->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('post-thumbnails', 'public');
         }
 
         $post->update($attributes);

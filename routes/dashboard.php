@@ -1,29 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\GroupsController;
-use App\Http\Controllers\ClientsController;
-use App\Http\Controllers\MessagesController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TestimonialsController;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProductsController;
 
-Route::controller(DashboardController::class)->group(function() {
-    Route::get('/admin/login', 'login')->middleware(['guest'])->name('dashboard.login');
-    Route::get('/admin', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard.index');
-    Route::post('/admin/login', 'store')->middleware(['guest'])->name('login');
-    Route::post('/wyloguj', 'logout')->middleware(['auth', 'verified'])->name('dashboard.logout');
-});
+Route::prefix('admin')->group(function() {
 
-Route::controller(PostsController::class)->group(function(){
-    Route::get('/admin/aktualnosci', 'index')->middleware(['auth', 'verified'])->name('posts.index');
-    Route::get('/admin/aktualnosci/dodaj', 'create')->middleware(['auth', 'verified'])->name('posts.create');
-    Route::post('/admin/aktualnosci/dodaj', 'store')->middleware(['auth', 'verified'])->name('posts.store');
-    Route::get('/admin/aktualnosci/{post}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('posts.edit');
-    Route::patch('/admin/aktualnosci/{post}/edytuj', 'update')->middleware(['auth', 'verified'])->name('posts.update');
-    Route::delete('/admin/aktualnosci/{post}/usun', 'destroy')->middleware(['auth', 'verified'])->name('posts.destroy');
+    Route::controller(DashboardController::class)->group(function() {
+        Route::get('/login', 'login')->middleware(['guest'])->name('dashboard.login');
+        Route::get('/', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard.index');
+        Route::post('/login', 'store')->middleware(['guest'])->name('login');
+        Route::post('/wyloguj', 'logout')->middleware(['auth', 'verified'])->name('dashboard.logout');
+    });
+
+    Route::controller(PostsController::class)->group(function(){
+        Route::get('/aktualnosci', 'index')->middleware(['auth', 'verified'])->name('posts.index');
+        Route::get('/aktualnosci/dodaj', 'create')->middleware(['auth', 'verified'])->name('posts.create');
+        Route::post('/aktualnosci', 'store')->middleware(['auth', 'verified'])->name('posts.store');
+        Route::get('/aktualnosci/{post}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('posts.edit');
+        Route::patch('/aktualnosci/{post}', 'update')->middleware(['auth', 'verified'])->name('posts.update');
+        Route::delete('/aktualnosci/{post}', 'destroy')->middleware(['auth', 'verified'])->name('posts.destroy');
+    });
+
+    Route::controller(ProductsController::class)->group(function(){
+        Route::get('/produkty', 'index')->middleware(['auth', 'verified'])->name('products.index');
+        Route::get('/produkty/dodaj', 'create')->middleware(['auth', 'verified'])->name('products.create');
+        Route::post('/produkty', 'store')->middleware(['auth', 'verified'])->name('products.store');
+        Route::get('/produkty/{product}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('products.edit');
+        Route::patch('/produkty/{product}', 'update')->middleware(['auth', 'verified'])->name('products.update');
+        Route::delete('/produkty/{product}', 'destroy')->middleware(['auth', 'verified'])->name('products.destroy');
+    });
+
 });
 
