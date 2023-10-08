@@ -123,11 +123,11 @@
             </div>
             <ul data-attribute="submenu"
                 class="flex-col w-full hidden text-gray-100 text-sm ml-9 border-l-2 border-main-300 mt-2">
-                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4 rounded-lg"><a href="#"
-                        class="w-full block hover:no-underline">Wszystkie
+                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4 rounded-lg"><a
+                        href="{{route('testimonials.index')}}" class="w-full block hover:no-underline">Wszystkie
                         opinie</a></li>
-                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4 rounded-lg"><a href="#"
-                        class="w-full block hover:no-underline">Dodaj
+                <li class="w-full hover:bg-main-200 ease-in-out duration-200 p-4 rounded-lg"><a
+                        href="{{route('testimonials.create')}}" class="w-full block hover:no-underline">Dodaj
                         opinię</a></li>
             </ul>
         </li>

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TestimonialsController;
 
 Route::prefix('admin')->group(function() {
 
@@ -40,6 +41,15 @@ Route::prefix('admin')->group(function() {
         Route::get('/uslugi/{service}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('services.edit');
         Route::patch('/uslugi/{service}', 'update')->middleware(['auth', 'verified'])->name('services.update');
         Route::delete('/uslugi/{service}', 'destroy')->middleware(['auth', 'verified'])->name('services.destroy');
+    });
+
+    Route::controller(TestimonialsController::class)->group(function(){
+        Route::get('/opinie', 'index')->middleware(['auth', 'verified'])->name('testimonials.index');
+        Route::get('/opinie/dodaj', 'create')->middleware(['auth', 'verified'])->name('testimonials.create');
+        Route::post('/opinie', 'store')->middleware(['auth', 'verified'])->name('testimonials.store');
+        Route::get('/opinie/{testimonial}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('testimonials.edit');
+        Route::patch('/opinie/{testimonial}', 'update')->middleware(['auth', 'verified'])->name('testimonials.update');
+        Route::delete('/opinie/{testimonial}', 'destroy')->middleware(['auth', 'verified'])->name('testimonials.destroy');
     });
 });
 
