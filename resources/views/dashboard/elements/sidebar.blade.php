@@ -145,5 +145,5 @@
             Wsparcie
         </a>
     </div>
-    <span class="mt-auto text-center p-2 text-sm text-gray-100">Site Wizard v0.1.0</span>
+    <span class="mt-auto text-center p-2 text-sm text-gray-100">Site Wizard v0.1.1</span>
 </aside>
