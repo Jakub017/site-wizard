@@ -12,12 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
     \App\Models\User::factory()->create([
         'name' => 'Jakub Lipiński',
@@ -27,6 +21,6 @@ class DatabaseSeeder extends Seeder
         'remember_token' => \Illuminate\Support\Str::random(10),
      ]);
      \App\Models\User::factory(4)->create();
-
-}
+     
+    }
 }

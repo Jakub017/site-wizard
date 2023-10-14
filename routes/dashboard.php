@@ -6,6 +6,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TestimonialsController;
+use App\Http\Controllers\TicketsController;
 
 Route::prefix('admin')->group(function() {
 
@@ -50,6 +51,10 @@ Route::prefix('admin')->group(function() {
         Route::get('/opinie/{testimonial}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('testimonials.edit');
         Route::patch('/opinie/{testimonial}', 'update')->middleware(['auth', 'verified'])->name('testimonials.update');
         Route::delete('/opinie/{testimonial}', 'destroy')->middleware(['auth', 'verified'])->name('testimonials.destroy');
+    });
+
+    Route::controller(TicketsController::class)->group(function(){
+        Route::get('/wsparcie', 'index')->middleware(['auth', 'verified'])->name('tickets.index');
     });
 });
 

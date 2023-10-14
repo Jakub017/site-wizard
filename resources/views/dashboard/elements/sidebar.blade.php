@@ -140,7 +140,7 @@
         </a>
         <a class="text-base w-full rounded-lg text-gray-100 p-4
             flex flex-row gap-3 items-center justify-start hover:no-underline hover:bg-main-200 ease-in-out duration-200"
-            href="#">
+            href="{{route('tickets.index')}}">
             <i class="fa-solid fa-circle-question text-lg text-main-300"></i>
             Wsparcie
         </a>
