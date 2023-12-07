@@ -15,9 +15,9 @@ export default {
                 primary: ['Poppins', 'sans-serif'],
             },
             fontSize: {
-                'xs': '14px',
-                'sm': '16px',
-                'base': '18px',
+                'xs': '12px',
+                'sm': '14px',
+                'base': '16px',
                 'lg': '20px',
                 'xl': '24px',
                 '2xl': '30px',

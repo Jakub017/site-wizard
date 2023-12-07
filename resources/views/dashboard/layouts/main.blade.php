@@ -32,7 +32,7 @@
 <body>
     <div class="flex h-screen">
         @include('dashboard.elements.sidebar')
-        <main class="w-full lg:w-[calc(100%-300px)]  bg-main-100 overflow-scroll">
+        <main class="w-full lg:w-[calc(100%-300px)] bg-main-100 overflow-y-scroll">
             @include('dashboard.elements.nav')
             <div class="max-w-[1100px] p-8 flex flex-col justify-center items-start gap-6">
                 @yield('content')

@@ -12,8 +12,8 @@
         @csrf
         @method('PATCH')
         <div class="flex flex-col justify-start items-start gap-1 w-full">
-            <label for="title" class="text-xs text-gray-100 font-medium">Miniaturka</label>
-            <input type="file" name="title" class="outline-none border-[1px] border-gray-300 rounded-lg w-full p-2">
+            <label for="image" class="text-xs text-gray-100 font-medium">Miniaturka</label>
+            <input type="file" name="image" class="outline-none border-[1px] border-gray-300 rounded-lg w-full p-2">
         </div>
         <div class="flex flex-col justify-start items-start gap-1 w-full">
             <label for="title" class="text-xs text-gray-100 font-medium">Tytuł aktualności</label>
@@ -21,18 +21,18 @@
                 value="{{$post->title}}">
         </div>
         <div class="flex flex-col justify-start items-start gap-1 w-full">
-            <label for="title" class="text-xs text-gray-100 font-medium">Krótki wstęp</label>
-            <textarea type="text" name="title" class="outline-none border-[1px] border-gray-300 rounded-lg w-full
-                h-[150px]">{{$post->excerpt}}</textarea>
+            <label for="excerpt" class="text-xs text-gray-100 font-medium">Krótki wstęp</label>
+            <textarea type="text" name="excerpt" class="outline-none border-[1px] border-gray-300 rounded-lg w-full
+                h-[150px]" value="{{$post->excerpt}}">{{$post->excerpt}}</textarea>
         </div>
         <div class="flex flex-col justify-start items-start gap-1 w-full">
-            <label for="title" class="text-xs text-gray-100 font-medium">Treść aktualności</label>
-            <textarea type="text" name="title" id="content" class="outline-none border-[1px] border-gray-300 rounded-lg w-full
-                h-[250px]">{{$post->content}}</textarea>
+            <label for="content" class="text-xs text-gray-100 font-medium">Treść aktualności</label>
+            <textarea type="text" name="content" id="content" class="outline-none border-[1px] border-gray-300 rounded-lg w-full
+                h-[250px]" value="{{$post->content}}">{{$post->content}}</textarea>
         </div>
         <div class="flex flex-col sm:flex-row justify-between gap-2">
             <div class="flex flex-col justify-start items-start gap-1 flex-grow">
-                <label for="title" class="text-xs text-gray-100 font-medium">Kategoria</label>
+                <label for="category" class="text-xs text-gray-100 font-medium">Kategoria</label>
                 <select name="category" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
                     <option value="">Wybierz kategorię</option>
                     <option value="Aktualności" {{ $post->category == "Aktualności" ? 'selected' : '' }}>Aktualności
@@ -41,8 +41,8 @@
                 </select>
             </div>
             <div class="flex flex-col justify-start items-start gap-1 flex-grow">
-                <label for="title" class="text-xs text-gray-100 font-medium">Status</label>
-                <select name="category" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+                <label for="status" class="text-xs text-gray-100 font-medium">Status</label>
+                <select name="status" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
                     <option value="">Wybierz status</option>
                     <option value="1" {{ $post->status == 1 ? 'selected' : '' }}>Opublikowane</option>
                     <option value="0" {{ $post->status == 0 ? 'selected' : '' }}>Szkic</option>

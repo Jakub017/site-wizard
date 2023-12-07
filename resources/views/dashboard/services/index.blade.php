@@ -40,10 +40,10 @@
                 {{$service->title}}
             </td>
             <td
-                class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
+                class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
                 {{$service->excerpt}}</td>
             <td
-                class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
+                class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
                 {{$service->price}}zł</td>
             <td
                 class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Akcje:'] md:before:content-[''] md:table-cell">

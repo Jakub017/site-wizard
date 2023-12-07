@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Faker\Provider\ar_EG\Address;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -29,6 +30,7 @@ class SendTicket extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            from: new Address($this->data['email']),
             subject: $this->data['subject'],
         );
     }

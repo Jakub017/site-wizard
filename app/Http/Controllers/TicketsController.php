@@ -10,4 +10,14 @@ class TicketsController extends Controller
     {
         return view('dashboard.tickets.index');
     }
+
+    public function send(Request $request) {
+        $attributes = $request->validate([
+            'recipent' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+            'file' => '',
+        ]);
+    }
 }

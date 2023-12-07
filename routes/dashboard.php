@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\TestimonialsController;
-use App\Http\Controllers\TicketsController;
 
 Route::prefix('admin')->group(function() {
 
@@ -33,6 +34,15 @@ Route::prefix('admin')->group(function() {
         Route::get('/produkty/{product}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('products.edit');
         Route::patch('/produkty/{product}', 'update')->middleware(['auth', 'verified'])->name('products.update');
         Route::delete('/produkty/{product}', 'destroy')->middleware(['auth', 'verified'])->name('products.destroy');
+    });
+
+    Route::controller(CategoriesController::class)->group(function() {
+        Route::get('/kategorie', 'index')->middleware(['auth', 'verified'])->name('categories.index');
+        Route::get('/kategorie/dodaj', 'create')->middleware(['auth', 'verified'])->name('categories.create');
+        Route::post('/kategorie', 'store')->middleware(['auth', 'verified'])->name('categories.store');
+        Route::get('/kategorie/{category}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('categories.edit');
+        Route::patch('/kategorie/{category}', 'update')->middleware(['auth', 'verified'])->name('categories.update');
+        Route::delete('/kategorie/{category}', 'destroy')->middleware(['auth', 'verified'])->name('categories.destroy');
     });
 
     Route::controller(ServicesController::class)->group(function() {

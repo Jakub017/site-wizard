@@ -40,7 +40,7 @@
                 {{$post->title}}
             </td>
             <td
-                class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
+                class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
                 {{$post->author}}</td>
             <td class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Data publikacji:'] md:before:content-['']
                 md:table-cell">

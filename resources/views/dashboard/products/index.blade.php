@@ -25,7 +25,7 @@
             class="relative after:content-[''] after:absolute after:w-full after:h-[1px] after:top-[105%] after:left-0 after:bg-gray-200 after:z-10">
             <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">ID</th>
             <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Nazwa produktu</th>
-            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Krótki opis</th>
+            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Kategoria</th>
             <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Cena</th>
             <th class="hidden md:table-cell p-2 text-center text-gray-100 text-[14px] font-medium">Akcje</th>
         </tr>
@@ -41,7 +41,7 @@
             </td>
             <td
                 class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
-                {{$product->excerpt}}</td>
+                {{$product->category}}</td>
             <td
                 class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
                 {{$product->price}}zł</td>
