@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'image',
@@ -19,4 +20,13 @@ class Post extends Model
         'category',
         'author',
     ];
+
+    public function toSearchableArray() {
+        return [
+            'title' => $this->title,
+            'author' => $this->author,
+            'category' => $this->category,
+            'status' => $this->status,
+        ];
+    }
 }

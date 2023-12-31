@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.lists')
 
-@section('title', 'Produkty - Site Wizard')
-@section('page', 'Produkty')
+@section('title', 'Kategorie - Site Wizard')
+@section('page', 'Kategorie')
 
 @section('content')
 
@@ -14,9 +14,9 @@
             <i class="fa-solid fa-magnifying-glass absolute top-[50%] left-2 translate-y-[-50%] text-gray-100"></i>
         </div>
     </form>
-    <a href="{{route('products.create')}}" class="text-white bg-main-300 p-2 rounded-lg w-full sm:w-fit"><i
+    <a href="{{route('categories.create')}}" class="text-white bg-main-300 p-2 rounded-lg w-full sm:w-fit"><i
             class="fa-solid fa-plus"></i> Dodaj
-        produkt</a>
+        kategorię</a>
 </div>
 
 <div class="bg-white border-[1px] border-gray-200 p-2 w-full rounded-2xl flex flex-col gap-4">
@@ -24,35 +24,30 @@
         <tr
             class="relative after:content-[''] after:absolute after:w-full after:h-[1px] after:top-[105%] after:left-0 after:bg-gray-200 after:z-10">
             <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">ID</th>
-            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Nazwa produktu</th>
-            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Krótki opis</th>
-            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Cena</th>
+            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Nazwa kategorii</th>
+            <th class="hidden md:table-cell p-2 text-left text-gray-100 text-[14px] font-medium">Opis kategorii</th>
             <th class="hidden md:table-cell p-2 text-center text-gray-100 text-[14px] font-medium">Akcje</th>
         </tr>
-        @foreach($products as $product)
+        @foreach($categories as $category)
         <tr>
             <td
                 class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['ID:'] md:before:content-[''] md:table-cell">
-                {{$product->id}}
+                {{$category->id}}
             </td>
             <td
                 class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['Tytuł:'] md:before:content-[''] md:table-cell">
-                {{$product->name}}
+                {{$category->name}}
             </td>
             <td
-                class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['Tytuł:'] md:before:content-[''] md:table-cell">
-                {{Str::limit($product->excerpt, 30)}}
-            </td>
-            <td
-                class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
-                {{$product->price}}zł</td>
+                class="grid gap-2 grid-cols-1 p-2 text-sm font-medium before:content-['Autor:'] md:before:content-[''] md:table-cell">
+                {{$category->description}}</td>
             <td
                 class="grid gap-2 grid-cols-1 p-2 font-medium before:content-['Akcje:'] md:before:content-[''] md:table-cell">
                 <div class="flex gap-3 justify-center items-center">
-                    <a href="{{route('products.edit', $product)}}"
+                    <a href="{{route('categories.edit', $category)}}"
                         class="bg-gray-200 p-2 rounded-md w-8 h-8 flex justify-center items-center"><i
                             class="text-sm text-gray-100 fa-solid fa-pen"></i></a>
-                    <form method="POST" action="{{route('products.destroy', $product)}}">
+                    <form method="POST" action="{{route('categories.destroy', $category)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit"
@@ -65,6 +60,6 @@
         @endforeach
     </table>
 </div>
-{{$products->links('vendor.pagination.tailwind')}}
+{{$categories->links('vendor.pagination.tailwind')}}
 
 @endsection

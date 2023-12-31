@@ -19,12 +19,11 @@ class DashboardController extends Controller
     public function dashboard() {
         $usersCount = count(User::get());
         $clientsCount = count(Client::get());
-        $groupsCount = count(Group::get());
 
         $servicesCount = count(Service::get());
         $testimonialsCount = count(Testimonial::get());
         $postsCount = count(Post::get());
-        return view('dashboard.dashboard', compact('usersCount', 'clientsCount', 'groupsCount', 'servicesCount', 'testimonialsCount', 'postsCount'));
+        return view('dashboard.dashboard', compact('usersCount', 'clientsCount', 'servicesCount', 'testimonialsCount', 'postsCount'));
     }
 
     public function login()

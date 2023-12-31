@@ -8,7 +8,7 @@
 <div class="w-full flex gap-2 wrap flex-col sm:flex-row sm:justify-between">
     <form action="#" class="w-full sm:w-[350px]">
         <div class="w-full relative">
-            <input type="text" name="search"
+            <input type="text" name="search" value="{{request('search')}}"
                 class="w-full outline-none border-[1px] border-gray-200 bg-white pl-7 rounded-lg"
                 placeholder="Szukaj...">
             <i class="fa-solid fa-magnifying-glass absolute top-[50%] left-2 translate-y-[-50%] text-gray-100"></i>

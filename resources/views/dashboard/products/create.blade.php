@@ -11,13 +11,26 @@
         class="flex flex-col gap-6 w-full max-w-2xl">
         @csrf
         @method('POST')
+        <div class="flex flex-col sm:flex-row justify-between gap-2">
+            <div class="flex flex-col justify-start items-start gap-1 w-full">
+                <label for="main_image" class="text-xs text-gray-100 font-medium">Zdjęcie główne produktu</label>
+                <input type="file" name="main_image"
+                    class="outline-none border-[1px] border-gray-300 rounded-lg w-full p-2">
+            </div>
+            <div class="flex flex-col justify-start items-start gap-1 w-full">
+                <label for="images" class="text-xs text-gray-100 font-medium">Pozostałe zdjęcia produktu</label>
+                <input type="file" name="images[]" multiple
+                    class="outline-none border-[1px] border-gray-300 rounded-lg w-full p-2">
+            </div>
+        </div>
+
         <div class="flex flex-col justify-start items-start gap-1 w-full">
-            <label for="image" class="text-xs text-gray-100 font-medium">Zdjęcie produktu</label>
-            <input type="file" name="image" class="outline-none border-[1px] border-gray-300 rounded-lg w-full p-2">
+            <label for="name" class="text-xs text-gray-100 font-medium">Nazwa produktu (wymagana)</label>
+            <input type="text" name="name" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
         </div>
         <div class="flex flex-col justify-start items-start gap-1 w-full">
-            <label for="title" class="text-xs text-gray-100 font-medium">Nazwa produktu</label>
-            <input type="text" name="title" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+            <label for="sku" class="text-xs text-gray-100 font-medium">SKU</label>
+            <input type="text" name="sku" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
         </div>
         <div class="flex flex-col justify-start items-start gap-1 w-full">
             <label for="price" class="text-xs text-gray-100 font-medium">Cena</label>
@@ -38,6 +51,21 @@
             <label for="content" class="text-xs text-gray-100 font-medium">Długi opis</label>
             <textarea type="text" name="content" id="content"
                 class="outline-none border-[1px] border-gray-300 rounded-lg w-full h-[250px]"></textarea>
+        </div>
+        <div class="flex flex-col justify-start items-start gap-1 flex-grow">
+            <label for="category" class="text-xs text-gray-100 font-medium">Kategorie</label>
+            <select name="categories[]" multiple class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="flex flex-col justify-start items-start gap-1 flex-grow">
+            <label for="status" class="text-xs text-gray-100 font-medium">Status (wymagany)</label>
+            <select name="status" class="outline-none border-[1px] border-gray-300 rounded-lg w-full">
+                <option value="0">Nieaktywny</option>
+                <option value="1">Aktywny</option>
+            </select>
         </div>
         <div class="flex gap-4">
             <button type="submit" class="text-white bg-main-300 p-2 rounded-lg min-w-[100px]">Zapisz</button>

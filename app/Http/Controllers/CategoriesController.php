@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     public function index() {
-        $categories = Category::latest()->get();
+        $categories = Category::search(request('search'))->orderBy('id', 'asc')->paginate(10);
         return view('dashboard.categories.index', compact('categories'));
     }
 
@@ -19,7 +19,7 @@ class CategoriesController extends Controller
     public function store(Request $request) {
         $attributes = $request->validate([
             'name' => 'required|unique:categories,name',
-            'description' => 'min:3|max:255',
+            'description' => 'max:255',
         ]);
 
         Category::create($attributes);
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
     public function update(Request $request, Category $category) {
         $attributes = $request->validate([
             'name' => 'required|unique:categories,name,' . $category->id,
-            'description' => 'min:3|max:255',
+            'description' => 'max:255',
         ]);
 
         $category->update($attributes);

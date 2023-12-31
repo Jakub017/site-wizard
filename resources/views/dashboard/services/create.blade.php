@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
-@section('title', 'Dodaj produkt - Site Wizard')
-@section('page', 'Dodaj produkt')
+@section('title', 'Dodaj usługę - Site Wizard')
+@section('page', 'Dodaj usługę')
 
 @section('content')
 

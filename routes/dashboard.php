@@ -63,6 +63,15 @@ Route::prefix('admin')->group(function() {
         Route::delete('/opinie/{testimonial}', 'destroy')->middleware(['auth', 'verified'])->name('testimonials.destroy');
     });
 
+    Route::controller(CategoriesController::class)->group(function(){
+        Route::get('/kategorie', 'index')->middleware(['auth', 'verified'])->name('categories.index');
+        Route::get('/kategorie/dodaj', 'create')->middleware(['auth', 'verified'])->name('categories.create');
+        Route::post('/kategorie', 'store')->middleware(['auth', 'verified'])->name('categories.store');
+        Route::get('/kategorie/{category}/edytuj', 'edit')->middleware(['auth', 'verified'])->name('categories.edit');
+        Route::patch('/kategorie/{category}', 'update')->middleware(['auth', 'verified'])->name('categories.update');
+        Route::delete('/kategorie/{category}', 'destroy')->middleware(['auth', 'verified'])->name('categories.destroy');
+    });
+
     Route::controller(TicketsController::class)->group(function(){
         Route::get('/wsparcie', 'index')->middleware(['auth', 'verified'])->name('tickets.index');
     });

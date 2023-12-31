@@ -14,7 +14,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = Client::with('groups')->get();
+        $clients = Client::search(request('search'))->orderBy('id', 'asc')->get();
 
         return view('dashboard.clients.clients-index', compact('clients'));
     }
@@ -24,8 +24,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        $groups = Group::get();
-        return view('dashboard.clients.clients-create', compact('groups'));
+        return view('dashboard.clients.clients-create');
     }
 
     /**
@@ -43,8 +42,6 @@ class ClientsController extends Controller
         ]);
 
         $client = Client::create($attributes);
-
-        $client->groups()->sync($request->input('groups'));
 
         return redirect()->back()->with(['success' => ['en' => 'Thank you for subscribing to the newsletter!', 'pl' => 'Dziękujemy za zapisanie się do newslettera!']]);
 
@@ -64,14 +61,9 @@ class ClientsController extends Controller
 
         $client = Client::create($attributes);
 
-        $client->groups()->sync($request->input('groups'));
-
         return Redirect::route('clients.index')->with('success', 'Klient dodany pomyślnie.');
     }
 
-    
-
-    
 
     /**
      * Display the specified resource.
@@ -86,8 +78,7 @@ class ClientsController extends Controller
      */
     public function edit(Client $client)
     {
-        $groups = Group::get();
-        return view('dashboard.clients.clients-edit', compact('client', 'groups'));
+        return view('dashboard.clients.clients-edit', compact('client'));
     }
 
     /**
@@ -105,8 +96,6 @@ class ClientsController extends Controller
         ]);
 
         $client->update($attributes);
-
-        $client->groups()->sync($request->input('groups'));
 
         return Redirect::route('clients.index')->with('success', 'Klient zaktualizowany pomyślnie.');
     }

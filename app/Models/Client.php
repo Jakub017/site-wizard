@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Group;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -21,12 +20,7 @@ class Client extends Model
             'name' => $this->name,
             'company' => $this->company,
             'country' => $this->country,
+            'email' => $this->email,
         ];
     }
-
-    public function groups()
-    {
-        return $this->belongsToMany(Group::class)->withTimestamps();
-    }
-
 }

@@ -9,7 +9,7 @@ class TestimonialsController extends Controller
 {
     public function index()
     {
-        $testimonials = Testimonial::paginate(5);
+        $testimonials = Testimonial::search(request('search'))->orderBy('id', 'asc')->paginate(5);
         return view('dashboard.testimonials.index', compact('testimonials'));
     }
 
@@ -22,7 +22,7 @@ class TestimonialsController extends Controller
             'name' => 'required',
             'position' => 'required',
             'content' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg|max:5000',
         ]);
 
         if($request->hasFile('image')) {
@@ -43,7 +43,7 @@ class TestimonialsController extends Controller
             'name' => 'required',
             'position' => 'required',
             'content' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg|max:5000',
         ]);
 
         if($request->hasFile('image')) {

@@ -10,7 +10,7 @@ class ServicesController extends Controller
 {
     public function index()
     {
-        $services = Service::paginate(10);
+        $services = Service::search(request('search'))->orderby('id', 'asc')->paginate(10);
         return view('dashboard.services.index', compact('services'));
     }
 
