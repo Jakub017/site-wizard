@@ -6,11 +6,16 @@
     </a>
     <ul class="flex flex-col gap-4">
         <li class="">
+            <span class="text-gray-600 uppercase text-xs font-semibold">{{
+                __("Zarządzanie")
+            }}</span>
+        </li>
+        <li class="">
             <a
                 href="{{ route('dashboard') }}"
-                class="flex items-center gap-2 font-medium text-sm p-2 text-gray-700 {{ request()->routeIs('dashboard') ? 'bg-blue-50 text-blue-600 rounded-md' : '' }}"
+                class="flex items-center gap-2 font-medium text-sm p-2 duration-300  {{ request()->routeIs('dashboard') ? 'bg-blue-50 text-blue-600 rounded-md' : 'text-gray-700 bg-white hover:bg-blue-50' }}"
                 ><i
-                    class="fa-solid fa-house text-base text-gray-300 {{ request()->routeIs('dashboard') ? 'text-blue-600' : '' }}"
+                    class="fa-solid fa-house text-base  {{ request()->routeIs('dashboard') ? ' text-blue-600' : 'text-gray-300 ' }}"
                 ></i
                 >{{ __("Pulpit główny") }}</a
             >
@@ -18,9 +23,9 @@
         <li class="">
             <a
                 href="{{ route('users.index') }}"
-                class="flex items-center gap-2 text-gray-700 font-medium text-sm p-2 {{ request()->routeIs('users.*') ? 'bg-blue-50 text-blue-600 rounded-md' : '' }}"
+                class="flex items-center gap-2  font-medium text-sm p-2 {{ request()->routeIs('users.*') ? 'bg-blue-50 text-blue-600 rounded-md hover:none' : 'text-gray-700 bg-white hover:bg-blue-50' }}"
                 ><i
-                    class="fa-solid fa-user-group text-gray-300 text-base  {{ request()->routeIs('users.*') ? 'text-blue-600' : '' }}"
+                    class="fa-solid fa-user-group  text-base  {{ request()->routeIs('users.*') ? 'text-blue-600' : 'text-gray-300' }}"
                 ></i
                 >{{ __("Użytkownicy") }}</a
             >
@@ -28,11 +33,16 @@
     </ul>
     <ul class="flex flex-col gap-4">
         <li class="">
+            <span class="text-gray-600 uppercase text-xs font-semibold">{{
+                __("Treść strony")
+            }}</span>
+        </li>
+        <li class="">
             <a
                 href="#"
-                class="flex items-center gap-2 text-gray-700 font-medium text-sm p-2"
+                class="flex items-center gap-2  font-medium text-sm p-2 {{ request()->routeIs('services.*') ? 'bg-blue-50 text-blue-600 rounded-md hover:none' : 'text-gray-700 bg-white hover:bg-blue-50' }}"
                 ><i
-                    class="fa-solid fa-screwdriver-wrench text-gray-300 text-base"
+                    class="fa-solid fa-screwdriver-wrench text-gray-300 text-base {{ request()->routeIs('services.*') ? 'text-blue-600' : 'text-gray-300' }}"
                 ></i
                 >{{ __("Usługi") }}</a
             >
@@ -56,6 +66,11 @@
     </ul>
     <ul class="flex flex-col gap-4">
         <li class="">
+            <span class="text-gray-600 uppercase text-xs font-semibold">{{
+                __("Ustawienia")
+            }}</span>
+        </li>
+        <li class="">
             <a
                 href="#"
                 class="flex items-center gap-2 text-gray-700 font-medium text-sm p-2"
@@ -74,7 +89,25 @@
             >
         </li>
     </ul>
-    <p class="text-gray-500 text-sm text-center mt-auto mb-0">
-        {{ __("Panel Site Wizard") }} v0.1.0
-    </p>
+    <div class="text-center mt-auto mb-0 flex flex-col gap-1">
+        <p class="text-gray-500 text-sm">
+            {{ __("Panel Site Wizard") }} v0.1.1
+        </p>
+        <p class="text-gray-500 text-xs">
+            Realizacja:
+            <a
+                href="https://lipinskijakub.pl"
+                target="_blank"
+                class="hover:underline"
+                >Jakub Lipiński</a
+            >
+            -
+            <a
+                href="https://webcrafts.pl"
+                target="_blank"
+                class="hover:underline"
+                >Webcrafts.pl</a
+            >
+        </p>
+    </div>
 </div>
