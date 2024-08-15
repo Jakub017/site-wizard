@@ -97,21 +97,21 @@
     </ul>
     <div class="text-center mt-auto mb-0 flex flex-col gap-1">
         <p class="text-gray-500 text-sm">
-            {{ __("Panel Site Wizard") }} v0.1.2
+            {{ __("Panel Site Wizard") }} v0.1.3
         </p>
         <p class="text-gray-500 text-xs">
             Realizacja:
             <a
                 href="https://lipinskijakub.pl"
                 target="_blank"
-                class="hover:underline"
+                class="hover:underline text-blue-600"
                 >Jakub Lipiński</a
             >
             -
             <a
                 href="https://webcrafts.pl"
                 target="_blank"
-                class="hover:underline"
+                class="hover:underline text-blue-600"
                 >Webcrafts.pl</a
             >
         </p>
