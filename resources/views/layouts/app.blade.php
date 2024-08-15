@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <!-- Meta Tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
-
         <title>{{ config("app.name", "Laravel") }}</title>
 
-        <!-- Fonts -->
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="{{ asset('favicon/apple-touch-icon.png') }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{{ asset('favicon/favicon-32x32.png') }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{ asset('favicon/favicon-16x16.png') }}"
+        />
+        <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -15,10 +37,12 @@
             rel="stylesheet"
         />
 
+        <!-- Font Awesome -->
         <script
             src="https://kit.fontawesome.com/1cf5dcdc03.js"
             crossorigin="anonymous"
         ></script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -36,7 +60,7 @@
                 </div>
             </header>
             @endif --}} @include('partials.sidebar')
-            <div class="flex flex-col w-[calc(100%-300px)]">
+            <div class="flex flex-col w-full lg:w-[calc(100%-300px)]">
                 @include('partials.navbar')
                 <main class="p-6">
                     {{ $slot }}

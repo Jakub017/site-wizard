@@ -1,7 +1,7 @@
 <div
-    class="w-72 h-screen bg-white border-r-[1px] border-gray-200 p-6 flex flex-col gap-12"
+    class="w-72 h-screen bg-white border-r-[1px] border-gray-200 p-6 flex flex-col gap-12 fixed left-[-100%] lg:sticky top-0"
 >
-    <a href="#">
+    <a href="{{ route('dashboard') }}">
         <img src="{{ asset('img/logo-black.png') }}" class="max-w-44 mx-auto" />
     </a>
     <ul class="flex flex-col gap-4">
@@ -76,7 +76,7 @@
         </li>
         <li class="">
             <a
-                href="#"
+                href="{{ route('settings') }}"
                 class="flex items-center gap-2 font-medium text-sm p-2 duration-300 {{ request()->routeIs('settings') ? 'bg-blue-50 text-blue-600 rounded-md hover:none' : 'text-gray-700 bg-white hover:bg-blue-50' }}"
                 ><i
                     class="fa-solid fa-gear text-base {{ request()->routeIs('settings') ? 'text-blue-600' : 'text-gray-300' }}"
@@ -97,7 +97,7 @@
     </ul>
     <div class="text-center mt-auto mb-0 flex flex-col gap-1">
         <p class="text-gray-500 text-sm">
-            {{ __("Panel Site Wizard") }} v0.1.3
+            {{ __("Panel Site Wizard") }} v0.2.0
         </p>
         <p class="text-gray-500 text-xs">
             Realizacja:

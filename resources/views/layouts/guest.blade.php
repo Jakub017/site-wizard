@@ -7,7 +7,7 @@
 
         <title>{{ config("app.name", "Laravel") }}</title>
 
-        <!-- Fonts -->
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -15,6 +15,29 @@
             rel="stylesheet"
         />
 
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="{{ asset('favicon/apple-touch-icon.png') }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{{ asset('favicon/favicon-32x32.png') }}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{{ asset('favicon/favicon-16x16.png') }}"
+        />
+        <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Font Awesome -->
         <script
             src="https://kit.fontawesome.com/1cf5dcdc03.js"
             crossorigin="anonymous"

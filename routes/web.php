@@ -8,6 +8,16 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+    Route::get('/admin', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/admin/ustawienia', function () {
+        return view('profile.show');
+    })->name('settings');
+});
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/admin/uzytkownicy', 'index')->name('users.index');
         Route::get('/admin/uzytkownicy/dodaj', 'create')->name('users.create');
@@ -18,13 +28,3 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     });
 });
 
-
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-    Route::get('/admin', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::get('/admin/ustawienia', function () {
-        return view('profile.show');
-    })->name('settings');
-});
