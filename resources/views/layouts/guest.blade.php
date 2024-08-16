@@ -50,7 +50,7 @@
         @livewireStyles
     </head>
     <body>
-        <div class="font-sans antialiased w-full min-h-screen">
+        <div class="font-sans antialiased w-full min-h-screen flex">
             {{ $slot }}
         </div>
 

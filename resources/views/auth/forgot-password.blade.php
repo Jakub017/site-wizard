@@ -1,34 +1,71 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+        <div
+            class="mb-4 flex flex-col justify-center items-center gap-8 h-full"
+        >
+            <div class="flex flex-col gap-4">
+                <h2
+                    class="text-2xl lg:text-3xl font-bold text-center text-gray-800"
+                >
+                    {{ __("Zapomniane hasło") }}
+                </h2>
+                <div class="mb-4 text-sm text-gray-600 text-center">
+                    {{
+                        __(
+                            "Zapomniałeś hasła? Nie ma problemu. Po prostu podaj nam swój adres e-mail, a my wyślemy Ci link do zresetowania hasła, który pozwoli Ci wybrać nowe."
+                        )
+                    }}
+                </div>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+                @session('status')
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ $value }}
+                </div>
+                @endsession
+
+                <!-- <x-validation-errors class="mb-4" /> -->
+            </div>
+            <form
+                method="POST"
+                action="{{ route('password.email') }}"
+                class="w-full"
+            >
+                @csrf
+
+                <x-label for="email" value="{{ __('Adres email') }}" />
+                <div class="block w-full relative">
+                    <i
+                        class="fa-solid fa-envelope absolute top-1/2 -translate-y-1/2 left-3 text-gray-400"
+                    ></i>
+                    <x-input
+                        id="email"
+                        class="block mt-1 w-full pl-9"
+                        type="email"
+                        name="email"
+                        :value="old('email')"
+                        required
+                        autofocus
+                        autocomplete="username"
+                    />
+                </div>
+
+                @error('email')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+
+                <div class="flex items-center justify-end mt-4">
+                    <x-button>
+                        {{ __("Wyślij link do resetu hasła") }}
+                    </x-button>
+                </div>
+            </form>
         </div>
-
-        @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ $value }}
-            </div>
-        @endsession
-
-        <x-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <div class="block">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
     </x-authentication-card>
+    <div class="hidden lg:flex lg:w-1/2">
+        <img
+            src="{{ asset('img/login-background.png') }}"
+            class="object-cover"
+            alt=""
+        />
+    </div>
 </x-guest-layout>

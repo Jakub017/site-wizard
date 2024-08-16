@@ -1,5 +1,5 @@
 <div
-    class="w-72 h-screen bg-white border-r-[1px] border-gray-200 p-6 flex flex-col gap-12 fixed left-[-100%] lg:sticky top-0"
+    class="w-72 h-screen bg-white border-r-[1px] border-gray-200 p-6 flex flex-col gap-12 fixed left-[-100%] lg:sticky top-0 overflow-y-scroll blue-scrollbar"
 >
     <a href="{{ route('dashboard') }}">
         <img src="{{ asset('img/logo-black.png') }}" class="max-w-44 mx-auto" />
@@ -94,25 +94,40 @@
                 >{{ __("Pomoc") }}</a
             >
         </li>
+        <li class="">
+            <form method="POST" action="{{ route('logout') }}" x-data>
+                @csrf
+
+                <a
+                    href=""
+                    class="flex items-center gap-2 text-gray-700 font-medium text-sm p-2 duration-300 hover:bg-blue-50"
+                    href="{{ route("logout") }}"
+                    @click.prevent="$root.submit();"
+                >
+                    <i class="fa-solid fa-right-from-bracket text-gray-300 text-base"></i>
+                    {{ __("Wyloguj się") }}
+                </a>
+            </form>
+        </li>
     </ul>
     <div class="text-center mt-auto mb-0 flex flex-col gap-1">
         <p class="text-gray-500 text-sm">
-            {{ __("Panel Site Wizard") }} v0.2.0
+            {{ __("Panel Site Wizard") }} v0.2.1
         </p>
         <p class="text-gray-500 text-xs">
             Realizacja:
-            <a
-                href="https://lipinskijakub.pl"
-                target="_blank"
-                class="hover:underline text-blue-600"
-                >Jakub Lipiński</a
-            >
-            -
             <a
                 href="https://webcrafts.pl"
                 target="_blank"
                 class="hover:underline text-blue-600"
                 >Webcrafts.pl</a
+            >
+            -
+            <a
+                href="https://lipinskijakub.pl"
+                target="_blank"
+                class="hover:underline text-blue-600"
+                >Jakub Lipiński</a
             >
         </p>
     </div>

@@ -19,9 +19,9 @@
             action="{{ route('users.store') }}"
         >
             @csrf @METHOD('POST')
-            <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="flex flex-wrap py-4 gap-5">
                 <div
-                    class="col-span-full"
+                    class="w-full"
                     x-data="{photoName: null, photoPreview: null}"
                 >
                     <input
@@ -86,7 +86,7 @@
                     @enderror
                 </div>
 
-                <div class="sm:col-span-3">
+                <div class="w-full lg:w-[calc(50%-1rem)]">
                     <label
                         for="name"
                         class="block text-sm font-medium leading-6 text-gray-900"
@@ -108,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="sm:col-span-3">
+                <div class="w-full lg:w-[calc(50%-1rem)]">
                     <label
                         for="email"
                         class="block text-sm font-medium leading-6 text-gray-900"
@@ -130,7 +130,7 @@
                     </div>
                 </div>
 
-                <div class="sm:col-span-3">
+                <div class="w-full lg:w-[calc(50%-1rem)]">
                     <label
                         for="password"
                         class="block text-sm font-medium leading-6 text-gray-900"
@@ -151,7 +151,7 @@
                     </div>
                 </div>
 
-                <div class="sm:col-span-3">
+                <div class="w-full lg:w-[calc(50%-1rem)]">
                     <label
                         for="password_confirmation"
                         class="block text-sm font-medium leading-6 text-gray-900"
@@ -172,7 +172,7 @@
                     </div>
                 </div>
 
-                <div class="w-full flex items-center gap-2 col-span-6">
+                <div class="w-full flex items-center gap-2">
                     <button
                         class="text-sm bg-blue-600 text-white px-3 py-2 rounded-md h-fit duration-200 hover:bg-blue-500 w-24 text-center"
                     >
