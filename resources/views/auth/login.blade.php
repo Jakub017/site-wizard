@@ -23,7 +23,7 @@
                 </p>
                 <!-- <x-validation-errors /> -->
                 @session('status')
-                <div class="mb-4 font-medium text-sm text-green-600">
+                <div class="font-medium text-sm text-green-600 text-center">
                     {{ $value }}
                 </div>
                 @endsession

@@ -9,7 +9,7 @@
                 >
                     {{ __("Zapomniane hasło") }}
                 </h2>
-                <div class="mb-4 text-sm text-gray-600 text-center">
+                <div class="text-sm text-gray-600 text-center">
                     {{
                         __(
                             "Zapomniałeś hasła? Nie ma problemu. Po prostu podaj nam swój adres e-mail, a my wyślemy Ci link do zresetowania hasła, który pozwoli Ci wybrać nowe."
@@ -18,7 +18,7 @@
                 </div>
 
                 @session('status')
-                <div class="mb-4 font-medium text-sm text-green-600">
+                <div class="font-medium text-sm text-green-600 text-center">
                     {{ $value }}
                 </div>
                 @endsession
