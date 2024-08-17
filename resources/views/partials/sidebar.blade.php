@@ -39,7 +39,7 @@
         </li>
         <li class="">
             <a
-                href="#"
+                href="{{ route('services.index') }}"
                 class="flex items-center gap-2  font-medium text-sm p-2 duration-300 {{ request()->routeIs('services.*') ? 'bg-blue-50 text-blue-600 rounded-md hover:none' : 'text-gray-700 bg-white hover:bg-blue-50' }}"
                 ><i
                     class="fa-solid fa-screwdriver-wrench text-base {{ request()->routeIs('services.*') ? 'text-blue-600' : 'text-gray-300' }}"
@@ -112,7 +112,7 @@
     </ul>
     <div class="text-center mt-auto mb-0 flex flex-col gap-1">
         <p class="text-gray-500 text-sm">
-            {{ __("Panel Site Wizard") }} v0.2.2
+            {{ __("Panel Site Wizard") }} v0.3.0
         </p>
         <p class="text-gray-500 text-xs">
             Realizacja:

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceController;
 
 Route::get('/', function () {
     return view('home');
@@ -15,6 +16,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/admin/ustawienia', function () {
         return view('profile.show');
     })->name('settings');
+
+    Route::get('/register', function () {
+        return redirect('/login');
+    })->name('register');
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
@@ -25,6 +30,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::post('/admin/uzytkownicy/dodaj', 'store')->name('users.store');
         Route::patch('/admin/uzytkownicy/edytuj/{user}', 'update')->name('users.update');
         Route::delete('/admin/uzytkownicy/usun/{user}', 'destroy')->name('users.destroy');
+    });
+
+    Route::controller(ServiceController::class)->group(function() {
+        Route::get('/admin/uslugi', 'index')->name('services.index');
+        Route::get('/admin/uslugi/dodaj', 'create')->name('services.create');
+        Route::get('/admin/uslugi/edytuj/{service}', 'edit')->name('services.edit');
+        Route::post('/admin/uslugi/dodaj', 'store')->name('services.store');
+        Route::patch('/admin/uslugi/edytuj/{service}', 'update')->name('services.update');
+        Route::delete('/admin/uslugi/usun/{service}', 'destroy')->name('services.destroy');
     });
 });
 

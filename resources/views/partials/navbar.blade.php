@@ -20,7 +20,7 @@
             class="w-14 h-14 rounded-full"
         />
         <div class="flex flex-col gap-0.5">
-            <h4 class="font-bold text-gray-800 text-base">
+            <h4 class="font-semibold text-gray-800 text-base">
                 {{ Auth::user()->name }}
             </h4>
             <h6 class="text-gray-600 text-xs">{{ Auth::user()->email }}</h6>

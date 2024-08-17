@@ -12,7 +12,7 @@ use Laravel\Jetstream\Jetstream;
 class UserController extends Controller
 {
     public function index() {
-        $users = User::all();
+        $users = User::orderBy('id', 'desc')->paginate(5);
         return view('users.index', compact('users'));
     }
 

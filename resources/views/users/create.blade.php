@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="p-4 border border-gray-200 rounded-lg">
         <div
-            class="flex justify-between w-full flex-col gap-2 xl:items-center xl:flex-row mb-6"
+            class="flex justify-between w-full flex-col gap-2 xl:items-center xl:flex-row mb-4"
         >
             <div class="flex flex-col text-lg max-w-[700px]">
                 <h1 class="text-gray-800 font-bold">Dodaj użytkownika</h1>
