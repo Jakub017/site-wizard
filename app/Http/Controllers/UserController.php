@@ -11,8 +11,8 @@ use Laravel\Jetstream\Jetstream;
 
 class UserController extends Controller
 {
-    public function index() {
-        $users = User::orderBy('id', 'desc')->paginate(5);
+    public function index(Request $request) {
+        $users = User::search($request->input('search'))->orderBy('id', 'desc')->paginate(5);
         return view('users.index', compact('users'));
     }
 

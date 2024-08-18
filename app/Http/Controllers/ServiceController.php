@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::orderBy('id', 'desc')->paginate(5);
+        $services = Service::search(request()->input('search'))->orderBy('id', 'desc')->paginate(5);
         return view('services.index', compact('services'));
     }
 

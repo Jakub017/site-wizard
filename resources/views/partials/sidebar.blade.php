@@ -112,7 +112,7 @@
     </ul>
     <div class="text-center mt-auto mb-0 flex flex-col gap-1">
         <p class="text-gray-500 text-sm">
-            {{ __("Panel Site Wizard") }} v0.3.0
+            {{ __("Panel Site Wizard") }} v0.3.1
         </p>
         <p class="text-gray-500 text-xs">
             Realizacja:
