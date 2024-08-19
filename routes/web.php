@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
@@ -39,6 +40,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::post('/admin/uslugi/dodaj', 'store')->name('services.store');
         Route::patch('/admin/uslugi/edytuj/{service}', 'update')->name('services.update');
         Route::delete('/admin/uslugi/usun/{service}', 'destroy')->name('services.destroy');
+    });
+
+    Route::controller(CategoryController::class)->group(function() {
+        Route::get('/admin/kategorie', 'index')->name('categories.index');
+        Route::get('/admin/kategorie/dodaj', 'create')->name('categories.create');
+        Route::get('/admin/kategorie/edytuj/{category}', 'edit')->name('categories.edit');
+        Route::post('/admin/kategorie/dodaj', 'store')->name('categories.store');
+        Route::patch('/admin/kategorie/edytuj/{category}', 'update')->name('categories.update');
+        Route::delete('/admin/kategorie/usun/{category}', 'destroy')->name('categories.destroy');
     });
 });
 
