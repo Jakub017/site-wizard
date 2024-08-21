@@ -1,18 +1,13 @@
 <x-app-layout>
     <div class="p-4 border border-gray-200 rounded-lg">
-        <div
-            class="flex justify-between w-full flex-col gap-2 xl:items-center xl:flex-row mb-4"
-        >
-            <div class="flex flex-col text-lg max-w-[700px]">
-                <h1 class="text-gray-800 font-bold">Dodaj usługę</h1>
-                <p class="mt-1 text-sm font-normal text-gray-500">
-                    Podaj najważniejsze informacje na temat twojej nowej usługi,
-                    która ma zostać wyświetlona na stronie.
-                </p>
-            </div>
+        <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900">
+                Edytuj usługę
+            </h1>
+            <p class="mt-2 text-sm text-gray-700">Edytuj istniejącą usługę.</p>
         </div>
         <form
-            class="max-w-[800px]"
+            class="max-w-[800px] mt-2"
             method="post"
             enctype="multipart/form-data"
             action="{{ route('services.update', $service) }}"
@@ -31,7 +26,7 @@
                         id="image"
                         type="file"
                     />
-                    <p class="mt-1 text-sm text-gray-500">
+                    <p class="mt-1 text-xs text-gray-500">
                         Obsługiwane pliki: PNG, JPG, JPEG, WEBP do 2MB
                     </p>
                 </div>
@@ -135,7 +130,7 @@
                     <button
                         class="text-sm bg-blue-600 text-white px-3 py-2 rounded-md h-fit duration-200 hover:bg-blue-500 w-24 text-center"
                     >
-                        Dodaj
+                        Zapisz
                     </button>
                     <a
                         href="{{ route('services.index') }}"

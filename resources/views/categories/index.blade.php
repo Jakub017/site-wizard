@@ -1,104 +1,102 @@
 <x-app-layout>
-    <div class="p-4 border border-gray-200 rounded-lg">
-        <div class="flex justify-between w-full flex-col gap-2 mb-6">
-            <div class="flex flex-col gap-2 max-w-[700px]">
-                <div class="w-full flex flex-col gap-1">
-                    <h1 class="text-gray-800 font-bold text-xl">Kategorie</h1>
-                    <p class="text-sm font-normal text-gray-600">
-                        Lista użytkowników, którzy mają dostęp do panelu
-                        administracyjnego. W tym miejscu możesz dodać nowych
-                        oraz edytować lub usunąć istnięjących.
-                    </p>
-                </div>
+    <div class="p-4 border border-gray-200 rounded-md">
+        <div class="sm:flex sm:items-center">
+            <div class="sm:flex-auto">
+                <h1 class="text-base font-semibold leading-6 text-gray-900">
+                    Kategorie
+                </h1>
+                <p class="mt-2 text-sm text-gray-700">
+                    Lista kategorii, do których można przyspisać produkty.
+                </p>
             </div>
-            <div
-                class="flex justify-center align-center flex-col gap-2 md:flex-row mt-2 md:justify-between"
-            >
-                <form action="" class="relative w-full md:w-52">
-                    @csrf
-                    <i
-                        class="fa-solid fa-magnifying-glass absolute text-gray-500 top-1/2 translate-y-[-50%] left-2"
-                    ></i>
-                    <input
-                        type="text"
-                        name="search"
-                        id="search"
-                        placeholder="Szukaj..."
-                        value="{{ request()->input('search') }}"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 pl-8 focus:ring-inset focus:ring-indigo-600 text-sm sm:leading-6 md:w-full"
-                    />
-                </form>
+            <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                 <a
                     href="{{ route('categories.create') }}"
-                    class="text-sm bg-blue-600 text-white px-3 py-2 rounded-md flex justify-center items-center duration-200 hover:bg-blue-500 w-full text-center md:w-fit"
-                    >Dodaj kategorię +</a
+                    type="button"
+                    class="block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
+                    Dodaj kategorię +
+                </a>
             </div>
         </div>
-        <div class="relative overflow-x-auto sm:rounded-lg">
-            <table
-                class="w-full text-sm text-left rtl:text-right text-gray-500"
-            >
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <div class="-mx-4 mt-8 sm:-mx-0">
+            <table class="min-w-full divide-y divide-gray-300">
+                <thead>
                     <tr>
-                        <th scope="col" class="px-6 py-3">
-                            {{ __("Nazwa kategorii") }}
+                        <th
+                            scope="col"
+                            class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                        >
+                            Nazwa kategorii
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            {{ __("Ilość produktów") }}
+                        <th
+                            scope="col"
+                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                        >
+                            Kolor
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            {{ __("Kolor") }}
+                        <th
+                            scope="col"
+                            class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                        >
+                            url
                         </th>
-                        <th scope="col" class="px-6 py-3 text-center">
-                            {{ __("Akcje") }}
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            <span class="sr-only">Edit</span>
+                        <th
+                            scope="col"
+                            class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900"
+                        >
+                            Akcje
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach ($categories as $category)
-                    <tr class="bg-white odd:bg-white even:bg-gray-50">
-                        <td class="px-6 py-4">
+                <tbody class="divide-y divide-gray-200 bg-white">
+                    @foreach($categories as $category)
+                    <tr>
+                        <td
+                            class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                        >
                             {{ $category->category_name }}
                         </td>
-                        <td class="px-6 py-4">0</td>
-                        <td class="px-6 py-4">
-                            <div
-                                class="w-5 h-5 rounded-full"
-                                style="background-color: {{ $category->color }}"
-                            ></div>
+                        <td
+                            class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                        >
+                            <div class="size-5 rounded-full" style="background-color: {{ $category->color }}"></div>
                         </td>
-
-                        <td class="px-6 py-4 text-center">
-                            <a href="{{ route('categories.edit', $category) }}"
-                                ><i
-                                    class="fa-solid fa-pen text-gray-600 hover:text-gray-500 duration-300"
-                                ></i
-                            ></a>
-                            <form
-                                action="{{
-                                    route('categories.destroy', $category)
-                                }}"
-                                method="post"
-                                class="inline ml-1"
+                        <td
+                            class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell"
+                        >
+                            /{{ $category->slug }}
+                        </td>
+                        <td
+                            class="whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-0"
+                        >
+                            <div
+                                class="flex gap-1.5 justify-center items-center"
                             >
-                                @csrf @METHOD('DELETE')
-                                <button
-                                    type="submit"
-                                    class="font-medium text-red-600 hover:text-red-500 duration-300"
+                                <a
+                                    href="{{ route('categories.edit', $category) }}"
+                                    class="text-blue-600 hover:text-blue-900"
+                                    >Edytuj<span class="sr-only"
+                                        >, {{ $category->category_name }}</span
+                                    ></a
                                 >
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </form>
+                                <form action="{{ route("categories.destroy", $category) }}" method="POST">
+                                    @csrf @method("DELETE")
+                                    <button
+                                        type="submit"
+                                        class="text-red-600 hover:text-red-900"
+                                    >
+                                        Usuń<span class="sr-only"
+                                            >, {{ $category->name }}</span
+                                        >
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            {{ $categories->links() }}
         </div>
     </div>
 </x-app-layout>

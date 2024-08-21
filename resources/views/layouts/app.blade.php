@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+    <head class="h-full bg-white">
         <!-- Meta Tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,25 +55,37 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="h-full font-sans antialiased">
         <x-banner />
 
+        {{--
         <div class="min-h-screen w-full flex justify-start">
-            {{-- @livewire('navigation-menu') @if (isset($header))
+            @livewire('navigation-menu') @if (isset($header))
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
-            @endif --}} @include('partials.sidebar')
-            <div class="flex flex-col w-full lg:w-[calc(100%-300px)]">
+            @endif @include('partials.sidebar')
+            <div class="flex flex-col w-full lg:w-[calc(100%-288px)]">
                 @include('partials.navbar')
                 <main class="p-6">
                     {{ $slot }}
                 </main>
             </div>
         </div>
+        --}}
 
+        <div>
+            @include('partials.sidebar')
+            <div class="lg:pl-72">
+                @include('partials.navbar')
+
+                <main class="p-4 sm:p-6">
+                    {{ $slot }}
+                </main>
+            </div>
+        </div>
         @stack('modals') @livewireScripts
     </body>
 

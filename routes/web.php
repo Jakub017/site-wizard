@@ -16,7 +16,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::get('/admin/ustawienia', function () {
         return view('profile.show');
-    })->name('settings');
+    })->name('profile.index');
 
     Route::get('/register', function () {
         return redirect('/login');

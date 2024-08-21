@@ -1,19 +1,16 @@
 <x-app-layout>
     <div class="p-4 border border-gray-200 rounded-lg">
-        <div
-            class="flex justify-between w-full flex-col gap-2 xl:items-center xl:flex-row mb-4"
-        >
-            <div class="flex flex-col text-lg max-w-[700px]">
-                <h1 class="text-gray-800 font-bold">Edytuj użytkownika</h1>
-                <p class="mt-1 text-sm font-normal text-gray-500">
-                    Lista użytkowników, którzy mają dostęp do panelu
-                    administracyjnego. W tym miejscu możesz dodać nowych oraz
-                    edytować lub usunąć istnięjących.
-                </p>
-            </div>
+        <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900">
+                Edytuj użytkownika
+            </h1>
+            <p class="mt-2 text-sm text-gray-700">
+                Edytuj istniejącego użytkownika, który ma dostęp do panelu i
+                wszystkich jego funkcji.
+            </p>
         </div>
         <form
-            class="max-w-[800px]"
+            class="max-w-[800px] mt-2"
             method="post"
             enctype="multipart/form-data"
             action="{{ route('users.update', $user) }}"
@@ -45,7 +42,7 @@
                         class="block text-sm font-medium leading-6 text-gray-900"
                         >Zdjęcie profilowe</label
                     >
-                    <div class="mt-2 flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-3">
                         <div class="mt-2" x-show="! photoPreview">
                             <img
                                 src="{{ $user->profile_photo_url }}"
