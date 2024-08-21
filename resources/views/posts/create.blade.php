@@ -2,17 +2,17 @@
     <div class="p-4 border border-gray-200 rounded-md">
         <div class="sm:flex-auto">
             <h1 class="text-base font-semibold leading-6 text-gray-900">
-                Edytuj usługę
+                Dodaj wpis
             </h1>
             <p class="mt-2 text-sm text-gray-700">
-                Edytuj informacje na temat istniejącej usługi.
+                Podaj informacje na temat nowego wpisu.
             </p>
         </div>
         <form
             class="max-w-[800px] mt-2"
             method="post"
             enctype="multipart/form-data"
-            action="{{ route('services.update', $service) }}"
+            action="{{ route('posts.store') }}"
         >
             @csrf @METHOD('POST')
             <div class="flex flex-wrap py-4 gap-5">
@@ -35,55 +35,64 @@
                     <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="w-full lg:w-[calc(50%-0.65rem)]">
+                <div class="w-full">
                     <label
-                        for="service_name"
+                        for="image_alt"
                         class="block text-sm font-medium leading-6 text-gray-900"
-                        >Nazwa usługi</label
+                        >Tekst alterantywny dla zdjęcia głównego</label
                     >
                     <div class="mt-2">
                         <input
                             type="text"
-                            name="service_name"
-                            id="service_name"
-                            autocomplete="name"
-                            placeholder="Podaj nazwę usługi"
-                            value="{{ $service->service_name }}"
+                            name="image_alt"
+                            id="image_alt"
+                            placeholder="Opisz zdjęcie główne"
+                            value="{{ old('image_alt') }}"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
-                        @error('service_name')
+                        @error('image_alt')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="w-full lg:w-[calc(50%-0.65rem)]">
                     <label
-                        for="price"
+                        for="title"
                         class="block text-sm font-medium leading-6 text-gray-900"
-                        >Cena usługi</label
+                        >Tytuł wpisu</label
                     >
                     <div class="mt-2">
-                        <div class="relative">
-                            <input
-                                type="text"
-                                name="price"
-                                id="price"
-                                autocomplete="name"
-                                placeholder="199"
-                                value="{{ $service->price }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 pr-8 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-
-                            <div
-                                class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none"
-                            >
-                                <span
-                                    class="text-gray-500 sm:text-sm sm:leading-6"
-                                    >zł</span
-                                >
-                            </div>
-                        </div>
-                        @error('price')
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            autocomplete="title"
+                            placeholder="Podaj tytuł wpisu"
+                            value="{{ old('title') }}"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                        @error('title')
+                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="w-full lg:w-[calc(50%-0.65rem)]">
+                    <label
+                        for="author"
+                        class="block text-sm font-medium leading-6 text-gray-900"
+                        >Autor</label
+                    >
+                    <div class="mt-2">
+                        <input
+                            type="text"
+                            name="author"
+                            id="author"
+                            autocomplete="name"
+                            placeholder="Podaj autora wpisu"
+                            value="{{ auth()->user()->name }}"
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                        @error('author')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                         @enderror
                     </div>
@@ -100,10 +109,10 @@
                             name="excerpt"
                             id="excerpt"
                             autocomplete="name"
-                            placeholder="Krótki opis usługi"
+                            placeholder="Krótka zajawka"
+                            value="{{ old('excerpt') }}"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 h-24 resize-none"
-                            >{{ $service->excerpt }}</textarea
-                        >
+                        ></textarea>
                         @error('excerpt')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                         @enderror
@@ -113,7 +122,7 @@
                     <label
                         for="content"
                         class="block text-sm font-medium leading-6 text-gray-900"
-                        >Pełny opis usługi</label
+                        >treść wpisu</label
                     >
                     <div class="mt-2">
                         <textarea
@@ -121,10 +130,10 @@
                             type="text"
                             name="content"
                             id="content"
-                            placeholder="Pełny opis usługi"
+                            placeholder="Pełna treść wpisu"
+                            value="{{ old('content') }}"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 h-24 resize-none"
-                            >{{ $service->content }}</textarea
-                        >
+                        ></textarea>
                         @error('content')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                         @enderror
@@ -135,10 +144,10 @@
                     <button
                         class="text-sm bg-blue-600 text-white px-3 py-2 rounded-md h-fit duration-200 hover:bg-blue-500 w-24 text-center"
                     >
-                        Zapisz
+                        Dodaj
                     </button>
                     <a
-                        href="{{ route('services.index') }}"
+                        href="{{ route('posts.index') }}"
                         class="text-sm bg-gray-500 text-white px-3 py-2 rounded-md h-fit duration-200 hover:bg-gray-400 w-24 text-center"
                     >
                         Anuluj

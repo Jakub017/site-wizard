@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('home');
@@ -50,5 +51,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::patch('/admin/kategorie/edytuj/{category}', 'update')->name('categories.update');
         Route::delete('/admin/kategorie/usun/{category}', 'destroy')->name('categories.destroy');
     });
+
+    Route::controller(PostController::class)->group(function() {
+        Route::get('/admin/blog', 'index')->name('posts.index');
+        Route::get('/admin/blog/dodaj', 'create')->name('posts.create');
+        Route::get('/admin/blog/edytuj/{post}', 'edit')->name('posts.edit');
+        Route::post('/admin/blog/dodaj', 'store')->name('posts.store');
+        Route::patch('/admin/blog/edytuj/{post}', 'update')->name('posts.update');
+        Route::delete('/admin/blog/usun/{post}', 'destroy')->name('posts.destroy');
+    });
+    
 });
 

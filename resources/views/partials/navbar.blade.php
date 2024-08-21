@@ -123,7 +123,7 @@
                 To: "transform opacity-0 scale-95"
             -->
                 <div
-                    class="user-menu absolute duaration-100 opacity-0 scale-95 right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
+                    class="user-menu absolute duaration-100 opacity-0 invisible scale-95 right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="user-menu-button"

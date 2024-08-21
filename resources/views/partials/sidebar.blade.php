@@ -316,7 +316,7 @@
                         <div
                             class="text-xs font-semibold leading-6 text-gray-400"
                         >
-                            Zarządzanie witryną
+                            Administracja
                         </div>
                         <li>
                             <!-- Current: "bg-gray-50 text-blue-600", Default: "text-gray-700 hover:text-blue-600 hover:bg-gray-50" -->
@@ -370,13 +370,13 @@
                         <div
                             class="text-xs font-semibold leading-6 text-gray-400"
                         >
-                            CRUD
+                            Zarządzanie treściami
                         </div>
                         <li>
                             <!-- Current: "bg-gray-50 text-blue-600", Default: "text-gray-700 hover:text-blue-600 hover:bg-gray-50" -->
                             <a
-                                href="#"
-                                class="text-gray-700 hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                                href="{{ route('posts.index') }}"
+                                class="{{ request()->routeIs('posts.*') ? 'bg-gray-50 text-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50' }} group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -384,7 +384,7 @@
                                     viewBox="0 0 24 24"
                                     stroke-width="1.5"
                                     stroke="currentColor"
-                                    class="size-6 text-gray-400 group-hover:text-blue-600"
+                                    class="size-6 {{ request()->routeIs('posts.*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600' }}"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -578,7 +578,7 @@
                 </li>
                 <li class="mt-auto mb-0 flex flex-col gap-1">
                     <span class="text-xs text-gray-400 text-center"
-                        >Panel Site Wizard v0.4.0</span
+                        >Panel Site Wizard v0.4.1</span
                     >
                     <span class="text-xs text-gray-400 text-center"
                         >Realizacja

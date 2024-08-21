@@ -8,6 +8,8 @@ userMenuBtn.addEventListener("click", () => {
     userMenu.classList.toggle("opacity-100");
     userMenu.classList.toggle("scale-95");
     userMenu.classList.toggle("scale-100");
+    userMenu.classList.toggle("visible");
+    userMenu.classList.toggle("invisible");
 });
 
 const mobileMenuOnButton = document.querySelector(".mobile-menu-open");
@@ -31,4 +33,6 @@ mobileMenuOffButton.addEventListener("click", () => {
     mobileBackdrop.classList.toggle("opacity-100");
     mobileBackdrop.classList.toggle("h-0");
     mobileBackdrop.classList.toggle("h-full");
+    mobileBackdrop.classList.toggle("invisible");
+    mobileBackdrop.classList.toggle("visible");
 });
