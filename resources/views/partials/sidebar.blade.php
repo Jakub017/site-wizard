@@ -441,8 +441,8 @@
                         </li>
                         <li>
                             <a
-                                href="#"
-                                class="text-gray-700 hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                                href="{{ route('products.index') }}"
+                                class="{{ request()->routeIs('products.*') ? 'bg-gray-50 text-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50' }} group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -450,7 +450,7 @@
                                     viewBox="0 0 24 24"
                                     stroke-width="1.5"
                                     stroke="currentColor"
-                                    class="size-6 text-gray-400"
+                                    class="size-6 {{ request()->routeIs('products.*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600' }}"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -578,7 +578,7 @@
                 </li>
                 <li class="mt-auto mb-0 flex flex-col gap-1">
                     <span class="text-xs text-gray-400 text-center"
-                        >Panel Site Wizard v0.4.2</span
+                        >Panel Site Wizard v0.4.3</span
                     >
                     <span class="text-xs text-gray-400 text-center"
                         >Realizacja

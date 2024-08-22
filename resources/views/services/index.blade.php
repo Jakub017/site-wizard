@@ -91,7 +91,7 @@
                                         class="text-red-600 hover:text-red-900"
                                     >
                                         Usuń<span class="sr-only"
-                                            >, {{ $service->name }}</span
+                                            >, {{ $service->service_name }}</span
                                         >
                                     </button>
                                 </form>

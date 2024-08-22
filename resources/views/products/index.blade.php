@@ -3,19 +3,19 @@
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
                 <h1 class="text-base font-semibold leading-6 text-gray-900">
-                    Kategorie produktów
+                    Produkty
                 </h1>
                 <p class="mt-2 text-sm text-gray-700">
-                    Lista kategorii, do których można przyspisać produkty.
+                    Lista produktów, które można wyświetlić na stronie.
                 </p>
             </div>
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                 <a
-                    href="{{ route('categories.create') }}"
+                    href="{{ route('products.create') }}"
                     type="button"
                     class="block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
-                    Dodaj kategorię +
+                    Dodaj produkt +
                 </a>
             </div>
         </div>
@@ -27,19 +27,19 @@
                             scope="col"
                             class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
                         >
-                            Nazwa kategorii
+                            Zdjęcie główne
                         </th>
                         <th
                             scope="col"
                             class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
                         >
-                            Kolor
+                            Nazwa uproduktu
                         </th>
                         <th
                             scope="col"
                             class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
                         >
-                            url
+                            Cena
                         </th>
                         <th
                             scope="col"
@@ -50,22 +50,28 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
-                    @foreach($categories as $category)
+                    @foreach($products as $product)
                     <tr>
                         <td
-                            class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
                         >
-                            {{ $category->category_name }}
+                            <img
+                                src="{{ asset('storage/'.$product->image) }}"
+                                class="size-14 rounded-full"
+                                alt=""
+                            />
                         </td>
                         <td
                             class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                         >
-                            <div class="size-5 rounded-full" style="background-color: {{ $category->color }}"></div>
+                            {{ $product->product_name }}
                         </td>
                         <td
                             class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell"
                         >
-                            /{{ $category->slug }}
+                        @foreach($product->categories as $category)
+                            <div class="p-2 text-white rounded-full w-fit" style="background-color: {{ $category->color }}">{{ $category->category_name }}</div>
+                        @endforeach
                         </td>
                         <td
                             class="whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-0"
@@ -74,20 +80,20 @@
                                 class="flex gap-1.5 justify-center items-center"
                             >
                                 <a
-                                    href="{{ route('categories.edit', $category) }}"
+                                    href="{{ route('products.edit', $product) }}"
                                     class="text-blue-600 hover:text-blue-900"
                                     >Edytuj<span class="sr-only"
-                                        >, {{ $category->category_name }}</span
+                                        >, {{ $product->product_name }}</span
                                     ></a
                                 >
-                                <form action="{{ route("categories.destroy", $category) }}" method="POST">
+                                <form action="{{ route("products.destroy", $product) }}" method="POST">
                                     @csrf @method("DELETE")
                                     <button
                                         type="submit"
                                         class="text-red-600 hover:text-red-900"
                                     >
                                         Usuń<span class="sr-only"
-                                            >, {{ $category->name }}</span
+                                            >, {{ $product->product_name }}</span
                                         >
                                     </button>
                                 </form>

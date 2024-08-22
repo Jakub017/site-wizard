@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 
@@ -59,6 +60,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::post('/admin/blog/dodaj', 'store')->name('posts.store');
         Route::patch('/admin/blog/edytuj/{post}', 'update')->name('posts.update');
         Route::delete('/admin/blog/usun/{post}', 'destroy')->name('posts.destroy');
+    });
+
+    Route::controller(ProductController::class)->group(function() {
+        Route::get('/admin/produkty', 'index')->name('products.index');
+        Route::get('/admin/produkty/dodaj', 'create')->name('products.create');
+        Route::get('/admin/produkty/edytuj/{product}', 'edit')->name('products.edit');
+        Route::post('/admin/produkty/dodaj', 'store')->name('products.store');
+        Route::patch('/admin/produkty/edytuj/{product}', 'update')->name('products.update');
+        Route::delete('/admin/produkty/usun/{product}', 'destroy')->name('products.destroy');
     });
     
 });
