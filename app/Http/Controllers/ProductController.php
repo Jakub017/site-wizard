@@ -12,13 +12,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('id', 'desc')->with('categories')->paginate(5);
-        return view('products.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function create() 
     {
         $categories = Category::all();
-        return view('products.create', compact('categories'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class ProductController extends Controller
     {
         $product = Product::where('id', $id)->with('categories')->firstOrFail();
         $categories = Category::all();
-        return view('products.edit', compact('product', 'categories'));
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)

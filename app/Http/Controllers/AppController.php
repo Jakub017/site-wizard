@@ -15,6 +15,6 @@ class AppController extends Controller
         $servicesCount = count(Service::all());
         $postsCount = count(Post::all());
         $productsCount = count(Product::all());
-        return view('dashboard', compact('usersCount', 'servicesCount', 'postsCount', 'productsCount'));
+        return view('admin.dashboard', compact('usersCount', 'servicesCount', 'postsCount', 'productsCount'));
     }
 }

@@ -14,7 +14,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::search(request()->input('search'))->orderBy('id', 'desc')->paginate(5);
-        return view('services.index', compact('services'));
+        return view('admin.services.index', compact('services'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+        return view('admin.services.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view('services.edit', compact('service'));
+        return view('admin.services.edit', compact('service'));
     }
 
     /**

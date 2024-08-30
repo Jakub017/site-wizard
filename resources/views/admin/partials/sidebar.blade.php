@@ -541,7 +541,7 @@
                 </li>
                 <li class="mt-auto mb-0 flex flex-col gap-1">
                     <span class="text-xs text-gray-400 text-center"
-                        >Panel Site Wizard v0.4.4</span
+                        >Panel Site Wizard v0.5.0</span
                     >
                     <span class="text-xs text-gray-400 text-center"
                         >Realizacja

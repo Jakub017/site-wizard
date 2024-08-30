@@ -77,9 +77,9 @@
         --}}
 
         <div>
-            @include('partials.sidebar')
+            @include('admin.partials.sidebar')
             <div class="lg:pl-72">
-                @include('partials.navbar')
+                @include('admin.partials.navbar')
 
                 <main class="p-4 sm:p-6">
                     {{ $slot }}

@@ -12,12 +12,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::search(request()->input('search'))->orderBy('id', 'desc')->paginate(5);
-        return view('posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts'));
     }
 
     public function create()
     {
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     public function store(Request $request) {
@@ -43,7 +43,7 @@ class PostController extends Controller
     }
 
     public function edit(Post $post) {
-        return view('posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post'));
     }
 
     public function update(Request $request, Post $post) {
