@@ -33,9 +33,15 @@
                             scope="col"
                             class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
                         >
-                            Nazwa uproduktu
+                            Nazwa produktu
                         </th>
                         <th
+                            scope="col"
+                            class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                        >
+                            Kategorie
+                        </th>
+                         <th
                             scope="col"
                             class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
                         >
@@ -69,9 +75,16 @@
                         <td
                             class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell"
                         >
-                        @foreach($product->categories as $category)
-                            <div class="p-2 text-white rounded-full w-fit" style="background-color: {{ $category->color }}">{{ $category->category_name }}</div>
+                        <div class="flex gap-1">
+                        @foreach($product->categories as $category)         
+                            <div class="px-2 py-1 text-white rounded-full w-fit" style="background-color: {{ $category->color }}">{{ $category->category_name }}</div> 
                         @endforeach
+                        </div>
+                        </td>
+                         <td
+                            class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell"
+                        >
+                            {{ $product->price }}zł
                         </td>
                         <td
                             class="whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-0"

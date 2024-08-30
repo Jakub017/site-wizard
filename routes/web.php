@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -12,9 +13,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-    Route::get('/admin', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
     Route::get('/admin/ustawienia', function () {
         return view('profile.show');
@@ -26,6 +24,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+
+    Route::controller(AppController::class)->group(function () {
+        Route::get('/admin', 'dashboard')->name('dashboard');
+    });
+
     Route::controller(UserController::class)->group(function () {
         Route::get('/admin/uzytkownicy', 'index')->name('users.index');
         Route::get('/admin/uzytkownicy/dodaj', 'create')->name('users.create');
