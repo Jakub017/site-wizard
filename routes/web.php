@@ -13,7 +13,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-
     Route::get('/admin/ustawienia', function () {
         return view('profile.show');
     })->name('profile.index');
@@ -29,6 +28,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::get('/admin', 'dashboard')->name('dashboard');
         Route::get('/admin/pomoc', 'help')->name('help');
         Route::post('/admin/pomoc', 'send')->name('help.send');
+        Route::get('/admin/ustawienia', 'settings')->name('settings');
+        Route::post('/admin/ustawienia', 'settingsUpdate')->name('settings.update');
     });
 
     Route::controller(UserController::class)->group(function () {

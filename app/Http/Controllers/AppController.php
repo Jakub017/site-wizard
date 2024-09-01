@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Mail\HelpMail;
 use App\Models\Product;
 use App\Models\Service;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -47,4 +48,33 @@ class AppController extends Controller
             return redirect()->back()->with('error', 'Wystąpił problem podczas wysyłania wiadomości. Spróbuj ponownie później.');
         }
     }
+
+    public function settings()
+    {
+        return view('admin.settings');
+    }
+
+    public function settingsUpdate(Request $request)
+    {
+        $data = $request->validate([
+            'tinymce_api_key' => 'nullable',
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'google_analytics' => 'nullable',
+        ]);
+
+        if(isset($data['logo'])) {
+            $data['logo'] = $data['logo']->store('settings', 'public');
+        }
+
+        $settings = Setting::first();
+
+        if($settings) {
+            $settings->update($data);
+        } else {
+            $settings = Setting::create($data);
+        }
+
+        return redirect()->back()->with('success', 'Ustawienia zaktualizowane pomyślnie.');
+    }
+
 }

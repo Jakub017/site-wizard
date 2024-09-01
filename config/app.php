@@ -123,7 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'version' => 'v0.5.1',
+    'version' => 'v0.5.2',
     'cms_name' => 'Site Wizard',
 
 ];

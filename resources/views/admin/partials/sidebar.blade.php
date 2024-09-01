@@ -33,8 +33,12 @@
                 <div class="flex h-16 shrink-0 items-center">
                     <img
                         class="h-8 w-auto"
-                        src="{{ asset('img/logo-black.png') }}"
-                        alt="Logo Webcrafts.pl"
+                        src="{{
+                            $logo
+                                ? asset('storage/'.$logo)
+                                : 'https://webcrafts.pl/wp-content/uploads/2024/06/og-image.png'
+                        }}"
+                        alt="Admin logo"
                     />
                 </div>
                 <nav class="flex flex-1 flex-col">
@@ -253,11 +257,11 @@
                             <ul role="list" class="-mx-2 mt-2 space-y-1">
                                 <li>
                                     <a
-                                        href="#"
-                                        class="text-gray-700 hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                                        href="{{ route('settings') }}"
+                                        class="{{ request()->routeIs('settings') ? 'bg-gray-50 text-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50' }} group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                     >
                                         <svg
-                                            class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-blue-600"
+                                            class="size-6 {{ request()->routeIs('settings') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600' }}"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke-width="1.5"
@@ -339,8 +343,12 @@
         <div class="flex h-16 shrink-0 items-center">
             <img
                 class="-mx-2 mt-2 h-10 w-auto"
-                src="{{ asset('img/logo-black.png') }}"
-                alt="Logo Webcrafts.pl"
+                src="{{
+                    $logo
+                        ? asset('storage/'.$logo)
+                        : 'https://webcrafts.pl/wp-content/uploads/2024/06/og-image.png'
+                }}"
+                alt="Admin logo"
             />
         </div>
         <nav class="flex flex-1 flex-col">
@@ -558,11 +566,11 @@
                         </div>
                         <li>
                             <a
-                                href="#"
-                                class="text-gray-700 hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+                                href="{{ route('settings') }}"
+                                class="{{ request()->routeIs('settings') ? 'bg-gray-50 text-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50' }} group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                             >
                                 <svg
-                                    class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-blue-600"
+                                    class="h-6 w-6 shrink-0 {{ request()->routeIs('settings') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600' }}"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke-width="1.5"
