@@ -27,6 +27,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::controller(AppController::class)->group(function () {
         Route::get('/admin', 'dashboard')->name('dashboard');
+        Route::get('/admin/pomoc', 'help')->name('help');
+        Route::post('/admin/pomoc', 'send')->name('help.send');
     });
 
     Route::controller(UserController::class)->group(function () {
