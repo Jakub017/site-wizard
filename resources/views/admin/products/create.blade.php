@@ -9,7 +9,7 @@
             </p>
         </div>
         <form
-            class="max-w-[800px] mt-2"
+            class="w-full mt-2"
             method="post"
             enctype="multipart/form-data"
             action="{{ route('products.store') }}"

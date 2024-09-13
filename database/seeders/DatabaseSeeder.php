@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Setting::create([
-            'website_name' => 'Site Wizard CMS',
+            'website_name' => 'Nowa strona Laravel',
         ]);
     }
 }

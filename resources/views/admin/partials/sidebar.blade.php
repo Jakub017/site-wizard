@@ -34,8 +34,8 @@
                     <img
                         class="h-8 w-auto"
                         src="{{
-                            $logo
-                                ? asset('storage/'.$logo)
+                            $adminLogo
+                                ? asset('storage/'.$adminLogo)
                                 : 'https://webcrafts.pl/wp-content/uploads/2024/06/og-image.png'
                         }}"
                         alt="Admin logo"
@@ -344,8 +344,8 @@
             <img
                 class="-mx-2 mt-2 h-10 w-auto"
                 src="{{
-                    $logo
-                        ? asset('storage/'.$logo)
+                    $adminLogo
+                        ? asset('storage/'.$adminLogo)
                         : 'https://webcrafts.pl/wp-content/uploads/2024/06/og-image.png'
                 }}"
                 alt="Admin logo"

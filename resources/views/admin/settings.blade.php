@@ -9,29 +9,49 @@
             </p>
         </div>
         <form
-            class="max-w-[800px] mt-2"
+            class="w-full mt-2"
             method="post"
             enctype="multipart/form-data"
             action="{{ route('settings.update') }}"
         >
             @csrf @METHOD('POST')
             <div class="flex flex-wrap py-4 gap-5">
-                <div class="w-full">
+                <div class="w-full lg:w-[calc(50%-0.65rem)]">
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900"
-                        for="logo"
+                        for="admin_logo"
                         >Logo panelu</label
                     >
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none p-2"
-                        name="logo"
-                        id="logo"
+                        name="admin_logo"
+                        id="admin_logo"
                         type="file"
                     />
                     <p class="mt-1 text-xs text-gray-500">
                         Obsługiwane pliki: PNG, JPG, JPEG, WEBP do 2MB
                     </p>
-                    @error('logo')
+                    @error('admin_logo')
+                    <span class="text-red-500 text-xs">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="w-full lg:w-[calc(50%-0.65rem)]">
+                    <label
+                        class="block mb-2 text-sm font-medium text-gray-900"
+                        for="website_logo"
+                        >Logo strony internetowej</label
+                    >
+                    <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none p-2"
+                        name="website_logo"
+                        id="website_logo"
+                        type="file"
+                    />
+                    <p class="mt-1 text-xs text-gray-500">
+                        Obsługiwane pliki: PNG, JPG, JPEG, WEBP do 2MB
+                    </p>
+                    @error('website_logo')
                     <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
                 </div>
@@ -48,7 +68,7 @@
                             name="website_name"
                             id="website_name"
                             autocomplete="name"
-                            placeholder="Podaj klucz TinyMCE"
+                            placeholder="Podaj nazwę strony"
                             value="{{ $websiteName }}"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
@@ -66,7 +86,7 @@
                     >
                     <div class="mt-2">
                         <input
-                            type="text"
+                            type="password"
                             name="tinymce_api_key"
                             id="tinymce_api_key"
                             autocomplete="name"
@@ -88,7 +108,7 @@
                     >
                     <div class="mt-2">
                         <input
-                            type="text"
+                            type="password"
                             name="google_analytics"
                             id="google_analytics"
                             autocomplete="name"

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('website_name')->nullable();
             $table->string('tinymce_api_key')->nullable();
-            $table->string('logo')->nullable();
+            $table->string('site_logo')->nullable();
+            $table->string('admin_logo')->nullable();
             $table->string('google_analytics')->nullable();
             $table->timestamps();
         });

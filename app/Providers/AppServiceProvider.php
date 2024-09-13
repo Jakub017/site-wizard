@@ -25,14 +25,16 @@ class AppServiceProvider extends ServiceProvider
 
         $tinyMceKey = $settings->tinymce_api_key ?? '';
         $googleAnalyticsKey = $settings->google_analytics ?? '';
-        $logo = $settings->logo;
+        $adminLogo = $settings->admin_logo ?? '';
+        $siteLogo = $settings->site_logo ?? '';
         $websiteName = $settings->website_name ?? '';
 
         View::share([
             'tinyMceKey' => $tinyMceKey,
             'googleAnalyticsKey' => $googleAnalyticsKey,
-            'logo' => $logo,
-            'websiteName' => $websiteName
+            'siteLogo' => $siteLogo,
+            'adminLogo' => $adminLogo,
+            'websiteName' => $websiteName,
         ]);
     }
 }

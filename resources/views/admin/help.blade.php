@@ -5,11 +5,15 @@
                 Pomoc
             </h1>
             <p class="mt-2 text-sm text-gray-700">
-                {{ __("Masz pytanie? Zgłoś problem lub uzyskaj wsparcie.") }}
+                {{
+                    __(
+                        "Masz pytanie? Zgłoś problem lub uzyskaj wsparcie od twórców Site Wizard."
+                    )
+                }}
             </p>
         </div>
         <form
-            class="max-w-[800px] mt-2"
+            class="w-full mt-2"
             method="post"
             enctype="multipart/form-data"
             action="{{ route('help.send') }}"
@@ -31,86 +35,94 @@
                     name="laravel_version"
                     value="{{ app()->version() }}"
                 />
-                <div class="w-full lg:w-[calc(33%-0.7rem)]">
-                    <label
-                        for="name"
-                        class="block text-sm font-medium leading-6 text-gray-900"
-                        >{{ __("Imię i nazwisko") }}</label
-                    >
-                    <div class="mt-2">
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            autocomplete="name"
-                            placeholder="Podaj imię i nazwisko"
-                            value="{{ auth()->user()->name }}"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                        @error('name')
-                        <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="w-full lg:w-[calc(33%-0.7rem)]">
-                    <label
-                        for="email"
-                        class="block text-sm font-medium leading-6 text-gray-900"
-                        >{{ __("Adres email") }}</label
-                    >
-                    <div class="mt-2">
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            autocomplete="email"
-                            placeholder="Podaj adres email"
-                            value="{{ auth()->user()->email }}"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                        @error('email')
-                        <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="w-full lg:w-[calc(33%-0.7rem)]">
-                    <label
-                        for="topic"
-                        class="block text-sm font-medium leading-6 text-gray-900"
-                        >{{ __("Temat") }}</label
-                    >
-                    <div class="mt-2">
-                        <select
-                            type="text"
-                            name="topic"
-                            id="topic"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                <div class="w-full flex gap-5 flex-wrap lg:flex-nowrap">
+                    <div class="w-full lg:w-1/3">
+                        <label
+                            for="name"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                            >{{ __("Imię i nazwisko") }}</label
                         >
-                            <option value="">
-                                {{ __("Wybierz temat") }}
-                            </option>
-                            <option value="bug">
-                                {{ __("Awaria") }}
-                            </option>
-                            <option value="finance">
-                                {{ __("Finanse") }}
-                            </option>
-                            <option value="database">
-                                {{ __("Baza danych") }}
-                            </option>
-                            <option value="account">
-                                {{ __("Konto użytkownika") }}
-                            </option>
-                            <option value="wcag">
-                                {{ __("Dostępność WCAG 2.1") }}
-                            </option>
-                            <option value="other">
-                                {{ __("Inne") }}
-                            </option>
-                        </select>
-                        @error('topic')
-                        <span class="text-red-500 text-xs">{{ $message }}</span>
-                        @enderror
+                        <div class="mt-2">
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                autocomplete="name"
+                                placeholder="Podaj imię i nazwisko"
+                                value="{{ auth()->user()->name }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
+                            @error('name')
+                            <span class="text-red-500 text-xs">{{
+                                $message
+                            }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3">
+                        <label
+                            for="email"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                            >{{ __("Adres email") }}</label
+                        >
+                        <div class="mt-2">
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                autocomplete="email"
+                                placeholder="Podaj adres email"
+                                value="{{ auth()->user()->email }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
+                            @error('email')
+                            <span class="text-red-500 text-xs">{{
+                                $message
+                            }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/3">
+                        <label
+                            for="topic"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                            >{{ __("Temat") }}</label
+                        >
+                        <div class="mt-2">
+                            <select
+                                type="text"
+                                name="topic"
+                                id="topic"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            >
+                                <option value="">
+                                    {{ __("Wybierz temat") }}
+                                </option>
+                                <option value="bug">
+                                    {{ __("Awaria") }}
+                                </option>
+                                <option value="finance">
+                                    {{ __("Finanse") }}
+                                </option>
+                                <option value="database">
+                                    {{ __("Baza danych") }}
+                                </option>
+                                <option value="account">
+                                    {{ __("Konto użytkownika") }}
+                                </option>
+                                <option value="wcag">
+                                    {{ __("Dostępność WCAG 2.1") }}
+                                </option>
+                                <option value="other">
+                                    {{ __("Inne") }}
+                                </option>
+                            </select>
+                            @error('topic')
+                            <span class="text-red-500 text-xs">{{
+                                $message
+                            }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="w-full">
